@@ -1,6 +1,9 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
+import {Box, Button, Popper, TextField} from "@mui/material";
 import {dataHandler} from "../services/Data_handler";
 import {ErrorMessage, MainContentWrapper} from "../styles/PageContainer.Style";
+import {ResultContainer, SearchContainer, TitleContainer} from "../styles/SearchPage.Styled";
+import MovieCard from "./MovieCard";
 
 
 const MainContainer = () => {
@@ -61,6 +64,18 @@ const MainContainer = () => {
 
     return (
         <MainContentWrapper>
+            <TitleContainer>
+                <h1>Welcome</h1>
+                <h3>Search for a movie</h3>
+            </TitleContainer>
+            <SearchContainer>
+
+                <TextField fullWidth id="contained"
+                           label="Search Movie"
+                           variant="filled"
+                           onChange={(event) => setSearchValue(event.target.value)}
+                           onKeyPress={(event) => handleKeyPress(event)}
+                />
 
         </MainContentWrapper>
     );
