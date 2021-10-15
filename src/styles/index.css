@@ -1,0 +1,90 @@
+:root {
+  /*//<------------------------------Headings fonts------------------------------------>*/
+  --ff-heading-normal: "Freight_Text_Medium", serif;
+  --ff-heading-bold: "Freight_Text_Bold", cursive;
+  --ff-heading-light: "Freight_Text_Light", cursive;
+  /*<------------------------------Body fonts------------------------------------>*/
+  --ff-body-normal: "BasisGrotesquePro_Regular", serif;
+  --ff-body-bold: "BasisGrotesquePro_Bold", cursive;
+  --ff-body-light: "BasisGrotesquePro_Light", cursive;
+  /*<------------------------------Base Color Palette------------------------------------>*/
+  --clr-primary-100: #9dace0;
+  --clr-primary-200: #6d7db4;
+  --clr-primary-300: #4E60EC;
+  --clr-primary-400: #121256;
+  --clr-primary-500: #0F083B;
+  /*<------------------------------------------------------------------>*/
+  --fs-base: 1rem;
+  /*<------------------------------Extra Color Palette------------------------------------>*/
+  --clr-tertiary: #f148fb;
+  --clr-tertiary-500: #662269;
+  --clr-accent: #2DE1AF;
+  --clr-light: #fff;
+  --clr-dark: #000;
+  --clr-gradient: linear-gradient(
+          150deg,
+          var(--clr-primary-500) 0%,
+          var(--clr-primary-200) 40%,
+          var(--clr-primary-300) 60%,
+          var(--clr-primary-400) 80%,
+          var(--clr-primary-500) 100%
+  );
+}
+
+/*<------------------------------Global rules------------------------------------>*/
+*,
+*::before,
+*::after {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--ff-body-normal);
+  background: var(--clr-gradient);
+  color: var(--clr-light);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/*<------------------------------font face------------------------------------>*/
+
+@font-face {
+  font-family: 'Freight_Text_Bold';
+  src: local('MyFont'), url("/src/assets/font/Freight_Text_Bold.otf");
+}
+
+@font-face {
+  font-family: 'Freight_Text_Medium';
+  src: local('MyFont'), url("/src/assets/font/Freight Text Medium.otf");
+}
+
+@font-face {
+  font-family: 'Freight_Text_Light';
+  src: local('MyFont'), url("/src/assets/font/Freight Text Light.otf");
+}
+
+@font-face {
+  font-family: 'BasisGrotesquePro_Light';
+  src: local('MyFont'), url("/src/assets/font/BasisGrotesquePro-Light.ttf");
+}
+
+@font-face {
+  font-family: 'BasisGrotesquePro_Bold';
+  src: local('MyFont'), url("/src/assets/font/BasisGrotesquePro-Bold.ttf");
+}
+
+@font-face {
+  font-family: 'BasisGrotesquePro_Regular';
+  src: local('MyFont'), url("/src/assets/font/BasisGrotesquePro-Regular.ttf");
+}
+
+
