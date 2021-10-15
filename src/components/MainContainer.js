@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-
+import {dataHandler} from "../services/Data_handler";
 import {ErrorMessage, MainContentWrapper} from "../styles/PageContainer.Style";
 
 
@@ -16,6 +16,26 @@ const MainContainer = () => {
 
     const BASEURL = 'https://tmdb.sandbox.zoosh.ie/dev/graphql'
 
+    function handleSearchRequest(event) {
+        if (searchValue) {
+            setLoading(true)
+            dataHandler._data = {
+                "query": "query SearchMovies { searchMovies(query: \"" + searchValue + "\") { id " +
+                    "name " +
+                    "overview " +
+                    "releaseDate " +
+                    "img: poster {" +
+                    "url: custom(size: \"w185_and_h278_bestv2\")} " +
+                    "genres{ ... on Genre {name} } } }"
+            }
+            dataHandler._api_post(BASEURL,
+                dataHandler._data,
+                setMovieResults,
+                setError,
+                setLoading)
+        } else {
+        }
+    }
 
     if (loading) {
         return (
