@@ -7,6 +7,9 @@ import MovieCard from "./MovieCard";
 
 
 const MainContainer = () => {
+    const [anchorEl, setAnchorEl] = useState(null);
+    const open = Boolean(anchorEl);
+    const id = open ? 'simple-popper' : undefined;
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(false);
 
@@ -44,8 +47,15 @@ const MainContainer = () => {
                 setError,
                 setLoading)
         } else {
+            setAnchorEl(anchorEl ? null : event.currentTarget);
         }
     }
+
+    useEffect(() => {
+        return () => {
+        };
+    }, [movieResults]);
+    console.log(movieResults.data.searchMovies)
 
     if (loading) {
         return (
