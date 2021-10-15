@@ -16,6 +16,13 @@ const MainContainer = () => {
 
     const BASEURL = 'https://tmdb.sandbox.zoosh.ie/dev/graphql'
 
+    function handleKeyPress(event) {
+        let key = event.keyCode || event.which;
+        if (key === 13) {  //KeyCode for Enter
+            handleSearchRequest();
+        }
+    }
+
     function handleSearchRequest(event) {
         if (searchValue) {
             setLoading(true)
