@@ -1,26 +1,25 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {Box, Button, Popper, TextField} from "@mui/material";
-import {dataHandler} from "../services/Data_handler";
 import {ErrorMessage, MainContentWrapper} from "../styles/PageContainer.Style";
 import {ResultContainer, SearchContainer, TitleContainer} from "../styles/SearchPage.Styled";
 import MovieCard from "./MovieCard";
-
+import {useLazyQuery} from '@apollo/client';
+import {GET_MOVIES} from "../graphQL/Queries";
 
 const MainContainer = () => {
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
     const id = open ? 'simple-popper' : undefined;
-    const [error, setError] = useState(false);
-    const [loading, setLoading] = useState(false);
 
-    const [searchValue, setSearchValue] = useState();
-    const [movieResults, setMovieResults] = useState({
-        data: {
-            searchMovies: []
+    const [searchValue, setSearchValue] = useState("");
+    const [searchKeyword, setSearchKeyword] = useState("");
+
+    const [getMovies, {loading, data, error}] = useLazyQuery(GET_MOVIES, {
+        variables: {keyWord: searchKeyword},
+        onCompleted: data => {
+            console.log('data ', data);
         }
     });
-
-    const BASEURL = 'https://tmdb.sandbox.zoosh.ie/dev/graphql'
 
     function handleKeyPress(event) {
         let key = event.keyCode || event.which;
@@ -31,31 +30,12 @@ const MainContainer = () => {
 
     function handleSearchRequest(event) {
         if (searchValue) {
-            setLoading(true)
-            dataHandler._data = {
-                "query": "query SearchMovies { searchMovies(query: \"" + searchValue + "\") { id " +
-                    "name " +
-                    "overview " +
-                    "releaseDate " +
-                    "img: poster {" +
-                    "url: custom(size: \"w185_and_h278_bestv2\")} " +
-                    "genres{ ... on Genre {name} } } }"
-            }
-            dataHandler._api_post(BASEURL,
-                dataHandler._data,
-                setMovieResults,
-                setError,
-                setLoading)
+            setSearchKeyword(searchValue);
+            getMovies();
         } else {
             setAnchorEl(anchorEl ? null : event.currentTarget);
         }
     }
-
-    useEffect(() => {
-        return () => {
-        };
-    }, [movieResults]);
-    console.log(movieResults.data.searchMovies)
 
     if (loading) {
         return (
@@ -92,13 +72,12 @@ const MainContainer = () => {
                         Please fill the search area!
                     </Box>
                 </Popper>
-
                 <Button onClick={handleSearchRequest} variant="contained">Search</Button>
             </SearchContainer>
             <ResultContainer>
-                {movieResults.data.searchMovies.map(movie =>
+                {data && (data.searchMovies.map(movie =>
                     <MovieCard key={movie.id} movie={movie}/>
-                )}
+                ))}
             </ResultContainer>
         </MainContentWrapper>
     );
