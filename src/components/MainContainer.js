@@ -77,6 +77,19 @@ const MainContainer = () => {
                            onKeyPress={(event) => handleKeyPress(event)}
                 />
 
+                <Popper id={id} open={open} anchorEl={anchorEl} placement="right">
+                    <Box sx={{border: 1, p: 1, m: 2}}>
+                        Please fill the search area!
+                    </Box>
+                </Popper>
+
+                <Button onClick={handleSearchRequest} variant="contained">Search</Button>
+            </SearchContainer>
+            <ResultContainer>
+                {movieResults.data.searchMovies.map(movie =>
+                    <MovieCard key={movie.id} movie={movie}/>
+                )}
+            </ResultContainer>
         </MainContentWrapper>
     );
 };
