@@ -9,7 +9,7 @@ const MovieCard = (props) => {
     return (
         <SingleElementContainer key={props.movie.id}>
             <h2>{props.movie.name}</h2>
-            <img src={props.movie.img.url} alt={props.movie.name}/>
+            {props.movie.img && <img src={props.movie.img.url} alt={props.movie.name}/>}
             <h3>{convertIsoDate(props.movie.releaseDate)}</h3>
             <GenresContainer>
                 {props.movie.genres.length !== 0 ? props.movie.genres.map(genre =>
