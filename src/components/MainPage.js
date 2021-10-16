@@ -7,7 +7,8 @@ import {useLazyQuery} from '@apollo/client';
 import {GET_MOVIES} from "../graphQL/Queries";
 import {Link} from "react-router-dom";
 
-const MainContainer = () => {
+const MainPage = () => {
+    const KEYCODE_FOR_ENTER = 13;
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
     const id = open ? 'simple-popper' : undefined;
@@ -24,7 +25,7 @@ const MainContainer = () => {
 
     function handleKeyPress(event) {
         let key = event.keyCode || event.which;
-        if (key === 13) {  //KeyCode for Enter
+        if (key === KEYCODE_FOR_ENTER) {
             handleSearchRequest();
         }
     }
@@ -88,4 +89,4 @@ const MainContainer = () => {
     );
 };
 
-export default MainContainer;
+export default MainPage;
