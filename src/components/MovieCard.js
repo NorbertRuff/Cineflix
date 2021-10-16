@@ -1,5 +1,5 @@
 import React from 'react';
-import {GenresContainer, SingleElementContainer} from "../styles/MovieCard.Styled";
+import {CardWrapper, GenresContainer} from "../styles/MovieCard.Styled";
 
 function convertIsoDate(releaseDate) {
     let date = new Date(releaseDate)
@@ -7,7 +7,7 @@ function convertIsoDate(releaseDate) {
 }
 const MovieCard = (props) => {
     return (
-        <SingleElementContainer key={props.movie.id}>
+        <CardWrapper key={props.movie.id}>
             <h2>{props.movie.name}</h2>
             {props.movie.img && <img src={props.movie.img.url} alt={props.movie.name}/>}
             <h3>{convertIsoDate(props.movie.releaseDate)}</h3>
@@ -20,7 +20,7 @@ const MovieCard = (props) => {
                     <h4>No genre</h4>
                 </div>}
             </GenresContainer>
-        </SingleElementContainer>
+        </CardWrapper>
     );
 };
 
