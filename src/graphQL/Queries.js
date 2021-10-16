@@ -6,6 +6,7 @@ export const GET_MOVIES = gql`
                     id
                     name
                     overview
+                    score
                     releaseDate
                     img: poster {
                         url: custom(size: "w185_and_h278_bestv2")
