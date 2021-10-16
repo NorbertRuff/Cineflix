@@ -4,6 +4,7 @@ export const SearchContainer = styled.div`
   display: flex;
   justify-content: space-around;
   margin: 4rem;
+  min-width: 40vw;
 `;
 
 export const ResultContainer = styled.div`

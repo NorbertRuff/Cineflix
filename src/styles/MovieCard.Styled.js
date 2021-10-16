@@ -1,13 +1,14 @@
 import styled from "styled-components";
 
-export const SingleElementContainer = styled.div`
+export const CardWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 15vw;
+  min-width: 15vw;
   transition: all 1s cubic-bezier(0.645, 0.045, 0.355, 1);
   background-color: var(--clr-primary-500);
   color: var(--clr-accent);
+  box-shadow: rgba(0, 0, 0, 0.16) 0 10px 10px, rgba(0, 0, 0, 0.23) 0 10px 10px;
 
   h2 {
     font-size: clamp(0.7rem, 2vw, 1rem);
