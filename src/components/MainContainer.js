@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import {Box, Button, Popper, TextField} from "@mui/material";
-import {ErrorMessage, MainContentWrapper} from "../styles/PageContainer.Style";
+import {Backdrop, Box, Button, CircularProgress, Popper, TextField} from "@mui/material";
+import {ErrorMessage, LoadingMessage, MainContentWrapper} from "../styles/PageContainer.Style";
 import {ResultContainer, SearchContainer, TitleContainer} from "../styles/SearchPage.Styled";
 import MovieCard from "./MovieCard";
 import {useLazyQuery} from '@apollo/client';
@@ -40,7 +40,11 @@ const MainContainer = () => {
     if (loading) {
         return (
             <MainContentWrapper>
-                <p>Data is loading...</p>
+                <LoadingMessage>Data is loading...</LoadingMessage>
+                <Backdrop sx={{color: 'var(--clr-primary-200)', zIndex: (theme) => theme.zIndex.drawer + 1}}
+                          open={loading}>
+                    <CircularProgress color="inherit"/>
+                </Backdrop>
             </MainContentWrapper>);
     }
 

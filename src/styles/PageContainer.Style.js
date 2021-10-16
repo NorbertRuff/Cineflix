@@ -47,7 +47,15 @@ export const Footer = styled.div`
 `;
 
 export const ErrorMessage = styled.h1`
-  display: flex;
-  justify-content: center;
+  text-align: center;
+  vertical-align: center;
   color: red;
+`;
+
+export const LoadingMessage = styled.h1`
+  text-align: center;
+  position: absolute;
+  top: 40%;
+  color: var(--clr-primary-100);
+  font-size: 2rem;
 `;
