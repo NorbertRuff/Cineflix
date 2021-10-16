@@ -1,6 +1,7 @@
 import {Footer, Header, PageContainerStyle} from "./styles/PageContainer.Style";
 import MainContainer from "./components/MainContainer";
 import {ApolloClient, ApolloProvider, InMemoryCache,} from "@apollo/client";
+import GithubCorner from "react-github-corner";
 
 
 const client = new ApolloClient({
@@ -13,7 +14,9 @@ function App() {
         <ApolloProvider client={client}>
             <PageContainerStyle>
                 <Header>
-                    <h2>Navbar</h2>
+                    <h2>Apex Lab project</h2>
+                    <GithubCorner href="https://github.com/NorbertRuff/apex-project" size="60" octoColor=""
+                                  bannerColor="#2DE1AF"/>
                 </Header>
                 <MainContainer/>
                 <Footer>
