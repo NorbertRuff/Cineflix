@@ -10,8 +10,10 @@ const MovieHeader = ({movie}) => {
                         src={movie.backdrop !== null ? movie.backdrop.small : undefined}
                         sx={{width: 100, height: 100}}/>
             }
+            sx={{backgroundColor: "rgba(45, 225, 175, 0.7)"}}
             title={movie.name}
             titleTypographyProps={{variant: "h3"}}
+            subheaderTypographyProps={{marginX: 4}}
             subheader={convertIsoDate(movie.releaseDate)}
             action={
                 <Box sx={{display: "flex", flexDirection: "column", alignItems: "center"}}>
