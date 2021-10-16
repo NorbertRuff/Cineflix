@@ -11,7 +11,7 @@ export const CardWrapper = styled.div`
   box-shadow: rgba(0, 0, 0, 0.16) 0 10px 10px, rgba(0, 0, 0, 0.23) 0 10px 10px;
 
   h2 {
-    font-size: clamp(0.7rem, 2vw, 1rem);
+    font-size: clamp(0.7rem, 2vw, 1.2rem);
     background-color: var(--clr-primary-300);
     width: 100%;
     text-align: center;
@@ -21,10 +21,10 @@ export const CardWrapper = styled.div`
 
   h3 {
     font-size: clamp(0.7rem, 2vw, 1rem);
-    background-color: var(--clr-primary-400);
+    background-color: var(--clr-tertiary-500);
     text-align: center;
     width: 100%;
-    color: var(--clr-tertiary);
+    color: var(--clr-light);
   }
 
   img {

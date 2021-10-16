@@ -1,5 +1,6 @@
 import React from 'react';
 import {CardWrapper, GenresContainer} from "../styles/MovieCard.Styled";
+import {Rating} from "@mui/material";
 
 function convertIsoDate(releaseDate) {
     let date = new Date(releaseDate)
@@ -11,6 +12,9 @@ const MovieCard = (props) => {
             <h2>{props.movie.name}</h2>
             {props.movie.img && <img src={props.movie.img.url} alt={props.movie.name}/>}
             <h3>{convertIsoDate(props.movie.releaseDate)}</h3>
+            <h3>
+                <Rating name="half-rating-read" defaultValue={props.movie.score / 2} precision={0.5} readOnly/>
+            </h3>
             <GenresContainer>
                 {props.movie.genres.length !== 0 ? props.movie.genres.map(genre =>
                     <div key={genre.name}>
