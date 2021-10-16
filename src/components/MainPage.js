@@ -5,6 +5,7 @@ import {ResultContainer, SearchContainer, TitleContainer} from "../styles/Search
 import MovieCard from "./MovieCard";
 import {useLazyQuery} from '@apollo/client';
 import {GET_MOVIES} from "../graphQL/Queries";
+import {Link} from "react-router-dom";
 
 const MainContainer = () => {
     const [anchorEl, setAnchorEl] = useState(null);
@@ -80,7 +81,7 @@ const MainContainer = () => {
             </SearchContainer>
             <ResultContainer>
                 {data && (data.searchMovies.map(movie =>
-                    <MovieCard key={movie.id} movie={movie}/>
+                    <Link to={`/movie/${movie.id}`}><MovieCard key={movie.id} movie={movie}/></Link>
                 ))}
             </ResultContainer>
         </MainContentWrapper>
