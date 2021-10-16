@@ -81,9 +81,11 @@ const MainPage = () => {
                 <Button onClick={handleSearchRequest} variant="contained">Search</Button>
             </SearchContainer>
             <ResultContainer>
-                {data && (data.searchMovies.map(movie =>
-                    <Link to={`/movie/${movie.id}`}><MovieCard key={movie.id} movie={movie}/></Link>
-                ))}
+                {data && (
+                    data.searchMovies.length === 0 ? <h1>No result</h1> :
+                        data.searchMovies.map(movie =>
+                            <Link to={`/movie/${movie.id}`}><MovieCard key={movie.id} movie={movie}/></Link>
+                        ))}
             </ResultContainer>
         </MainContentWrapper>
     );
