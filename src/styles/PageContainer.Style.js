@@ -13,6 +13,11 @@ export const PageContainerStyle = styled.div`
 `;
 
 export const MainContentWrapper = styled.div`
+  padding: var(--fs-base);
+  background-color: rgba(0, 0, 0, 0.2);
+  background-image: url(${(props) => props.backDrop});
+  background-repeat: no-repeat;
+  background-size: cover;
   grid-area: MainContentArea;
   display: flex;
   align-items: center;
