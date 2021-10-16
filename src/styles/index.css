@@ -24,9 +24,8 @@
   --clr-gradient: linear-gradient(
           150deg,
           var(--clr-primary-500) 0%,
-          var(--clr-primary-200) 40%,
-          var(--clr-primary-300) 60%,
-          var(--clr-primary-400) 80%,
+          var(--clr-primary-300) 20%,
+          var(--clr-primary-400) 90%,
           var(--clr-primary-500) 100%
   );
 }

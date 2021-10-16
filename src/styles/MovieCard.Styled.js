@@ -1,16 +1,17 @@
 import styled from "styled-components";
 
-export const SingleElementContainer = styled.div`
+export const CardWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 15vw;
+  min-width: 15vw;
   transition: all 1s cubic-bezier(0.645, 0.045, 0.355, 1);
   background-color: var(--clr-primary-500);
   color: var(--clr-accent);
+  box-shadow: rgba(0, 0, 0, 0.16) 0 10px 10px, rgba(0, 0, 0, 0.23) 0 10px 10px;
 
   h2 {
-    font-size: clamp(0.7rem, 2vw, 1rem);
+    font-size: clamp(0.7rem, 2vw, 1.2rem);
     background-color: var(--clr-primary-300);
     width: 100%;
     text-align: center;
@@ -20,10 +21,10 @@ export const SingleElementContainer = styled.div`
 
   h3 {
     font-size: clamp(0.7rem, 2vw, 1rem);
-    background-color: var(--clr-primary-400);
+    background-color: var(--clr-tertiary-500);
     text-align: center;
     width: 100%;
-    color: var(--clr-tertiary);
+    color: var(--clr-light);
   }
 
   img {
