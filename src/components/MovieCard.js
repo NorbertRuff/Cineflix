@@ -1,11 +1,9 @@
 import React from 'react';
 import {CardWrapper, GenresContainer} from "../styles/MovieCard.Styled";
 import {Rating} from "@mui/material";
+import {convertIsoDate} from "../utils/convertUtils";
 
-function convertIsoDate(releaseDate) {
-    let date = new Date(releaseDate)
-    return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate()
-}
+
 const MovieCard = (props) => {
     return (
         <CardWrapper key={props.movie.id}>
