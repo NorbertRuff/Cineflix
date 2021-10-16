@@ -4,18 +4,22 @@ export const CardWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 15vw;
+  width: 260px;
+  min-height: 600px;
   transition: all 1s cubic-bezier(0.645, 0.045, 0.355, 1);
   background-color: var(--clr-primary-500);
   color: var(--clr-accent);
   box-shadow: rgba(0, 0, 0, 0.16) 0 10px 10px, rgba(0, 0, 0, 0.23) 0 10px 10px;
 
   h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: clamp(0.7rem, 2vw, 1.2rem);
     background-color: var(--clr-primary-300);
     width: 100%;
     text-align: center;
-    height: 5vh;
+    height: 8vh;
     padding: 10px;
   }
 
@@ -28,7 +32,8 @@ export const CardWrapper = styled.div`
   }
 
   img {
-    width: 100%;
+    width: 260px;
+    min-height: 400px;
   }
 
   :hover, :focus-within {
