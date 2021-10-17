@@ -1,19 +1,17 @@
 import React, {useEffect, useState} from 'react';
 import {Button, CardActions, CardContent, CircularProgress, Typography} from "@mui/material";
-import {ErrorMessage} from "../styles/PageContainer.Style";
 import {dataHandler} from "../services/dataHandler";
 
 const ImdbInfoCard = ({MovieInfo}) => {
 
-    const API_KEY = `k_13fjgtth`;
 
     const imdbBaseUrl = `https://www.imdb.com/title/`;
     const [imdbInfo, setImdbInfo] = useState("");
     const [imdbLoading, setImdbLoading] = useState(false);
     const [imdbError, setImdbError] = useState(false);
 
-
-    const baseUrl = `https://imdb-api.com/en/API/SearchMovie/${API_KEY}/${MovieInfo.toString()}`;
+    const {REACT_APP_IMDB_API_KEY} = process.env;
+    const baseUrl = `https://imdb-api.com/en/API/SearchMovie/${REACT_APP_IMDB_API_KEY}/${MovieInfo.toString()}`;
 
 
     useEffect(() => {
@@ -32,26 +30,25 @@ const ImdbInfoCard = ({MovieInfo}) => {
         )
     }
 
-
     if (imdbInfo.results === null) {
         return (
             <CardContent>
                 <Typography sx={{fontSize: 14}} color="text.secondary" gutterBottom>
                     Imdb info
                 </Typography>
-                <p>No result</p>
+                <p>{imdbInfo.errorMessage ? "Error with Imdb api: " + imdbInfo.errorMessage : "No result"}</p>
             </CardContent>
         )
     }
 
 
-    if (imdbError) {
+    if (imdbError || imdbInfo.errorMessage) {
         return (
             <CardContent>
                 <Typography sx={{fontSize: 14}} color="text.secondary" gutterBottom>
                     Imdb info
                 </Typography>
-                <ErrorMessage>An error occurred while fetching information!</ErrorMessage>
+                An error occurred while fetching information! {imdbInfo.errormessage}
             </CardContent>
 
         );
