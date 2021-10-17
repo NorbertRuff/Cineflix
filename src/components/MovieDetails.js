@@ -9,8 +9,8 @@ import MovieCrew from "./CardComponents/MovieCrew";
 import MovieOverView from "./CardComponents/MovieOverView";
 import MovieThumbnail from "./CardComponents/MovieThumbnail";
 import {MovieDetailsWrapper} from "../styles/MovieDetails.Styled";
-import WikiInfoCard from "./WikiInfoCard";
-import ImdbInfoCard from "./ImdbdInfoCard";
+import WikiMiniCard from "./CardComponents/WikiMiniCard";
+import ImdbMiniCard from "./CardComponents/ImdbMiniCard";
 
 
 const MovieDetails = (props) => {
@@ -62,10 +62,10 @@ const MovieDetails = (props) => {
                 </Card>
                 <Box sx={{maxWidth: 400, display: "flex", flexDirection: "column"}}>
                     <Card className="wikiCard" sx={{marginBottom: 2}}>
-                        <WikiInfoCard MovieInfo={data.movie.name}/>
+                        <WikiMiniCard MovieInfo={data.movie.name}/>
                     </Card>
                     <Card className="imdbCard" sx={{marginBottom: 2}}>
-                        <ImdbInfoCard MovieInfo={data.movie.name}/>
+                        <ImdbMiniCard MovieInfo={data.movie.name}/>
                     </Card>
                 </Box>
             </MovieDetailsWrapper>

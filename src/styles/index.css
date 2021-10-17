@@ -1,8 +1,4 @@
 :root {
-  /*//<------------------------------Headings fonts------------------------------------>*/
-  --ff-heading-normal: "Freight_Text_Medium", serif;
-  --ff-heading-bold: "Freight_Text_Bold", cursive;
-  --ff-heading-light: "Freight_Text_Light", cursive;
   /*<------------------------------Body fonts------------------------------------>*/
   --ff-body-normal: "BasisGrotesquePro_Regular", serif;
   --ff-body-bold: "BasisGrotesquePro_Bold", cursive;
@@ -55,21 +51,6 @@ body {
 }
 
 /*<------------------------------font face------------------------------------>*/
-
-@font-face {
-  font-family: 'Freight_Text_Bold';
-  src: local('MyFont'), url("/src/assets/font/Freight_Text_Bold.otf");
-}
-
-@font-face {
-  font-family: 'Freight_Text_Medium';
-  src: local('MyFont'), url("/src/assets/font/Freight Text Medium.otf");
-}
-
-@font-face {
-  font-family: 'Freight_Text_Light';
-  src: local('MyFont'), url("/src/assets/font/Freight Text Light.otf");
-}
 
 @font-face {
   font-family: 'BasisGrotesquePro_Light';
