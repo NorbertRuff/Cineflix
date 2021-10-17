@@ -13,8 +13,8 @@ const MovieHeader = ({movie}) => {
             sx={{backgroundColor: "rgba(45, 225, 175, 0.7)"}}
             title={movie.name}
             titleTypographyProps={{variant: "h3"}}
-            subheaderTypographyProps={{marginX: 4}}
-            subheader={convertIsoDate(movie.releaseDate)}
+            subheaderTypographyProps={{marginX: 4, fontSize: 20}}
+            subheader={"On air: " + convertIsoDate(movie.releaseDate)}
             action={
                 <Box sx={{display: "flex", flexDirection: "column", alignItems: "center"}}>
                     <Typography variant="h6" color="text.primary">Rating</Typography>
