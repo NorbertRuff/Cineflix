@@ -1,5 +1,5 @@
 import React from 'react';
-import {Avatar, Divider, List, ListItem, ListItemText, Typography} from "@mui/material";
+import {Avatar, List, ListItem, ListItemText, Typography} from "@mui/material";
 
 const MovieCast = ({cast}) => {
     return (
@@ -12,7 +12,6 @@ const MovieCast = ({cast}) => {
                         src={person.person.images[0] && person.person.images[0].small}
                         sx={{width: 50, height: 50}}/>
                     <ListItemText sx={{paddingLeft: 2}} primary={person.person.name}/>
-                    <Divider variant="inset" component="li"/>
                 </ListItem>
             ))}
         </List>

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Divider, List, ListItem, ListItemText, Typography} from "@mui/material";
+import {List, ListItem, ListItemText, Typography} from "@mui/material";
 
 
 const MovieCrew = ({crew}) => {
@@ -11,7 +11,6 @@ const MovieCrew = ({crew}) => {
                 <ListItem key={person.id}>
                     <ListItemText sx={{paddingLeft: 2}} primary={person.person.name}
                                   secondary={person.role.job}/>
-                    <Divider variant="inset" component="li"/>
                 </ListItem>
             ))}
         </List>
