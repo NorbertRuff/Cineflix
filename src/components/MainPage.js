@@ -1,19 +1,13 @@
 import React, {useState} from 'react';
-import {Backdrop, Box, Button, CircularProgress, Popper, TextField} from "@mui/material";
+import {Backdrop, CircularProgress} from "@mui/material";
 import {ErrorMessage, LoadingMessage, MainContentWrapper} from "../styles/PageContainer.Style";
-import {ResultContainer, SearchContainer, TitleContainer} from "../styles/SearchPage.Styled";
-import MovieCard from "./MovieCard";
 import {useLazyQuery} from '@apollo/client';
 import {GET_MOVIES} from "../graphQL/Queries";
-import {Link} from "react-router-dom";
+import SearchComponent from "./SearchComponent";
+import MovieResultCardComponent from "./CardComponents/MovieResultComponent";
 
 const MainPage = () => {
-    const KEYCODE_FOR_ENTER = 13;
-    const [popperAnchorElement, setPopperAnchorElement] = useState(null);
-    const popperIsOpen = Boolean(popperAnchorElement);
 
-
-    const [searchValue, setSearchValue] = useState("");
     const [searchKeyword, setSearchKeyword] = useState("");
 
     const [getMovies, {loading, data, error}] = useLazyQuery(GET_MOVIES, {
@@ -23,23 +17,6 @@ const MainPage = () => {
         }
     });
 
-    function handleKeyPress(event) {
-        let key = event.keyCode || event.which;
-        if (key === KEYCODE_FOR_ENTER) {
-            handleSearchRequest();
-        }
-    }
-
-    function handleSearchRequest(event) {
-        if (searchValue) {
-            setSearchKeyword(searchValue);
-            getMovies();
-            setPopperAnchorElement(null);
-            setSearchValue("")
-        } else {
-            setPopperAnchorElement(popperAnchorElement ? null : document.getElementById("searchButton"));
-        }
-    }
 
     if (loading) {
         return (
@@ -62,36 +39,8 @@ const MainPage = () => {
 
     return (
         <MainContentWrapper>
-            <TitleContainer>
-                <h1>Welcome</h1>
-                <h3>Search for a movie</h3>
-            </TitleContainer>
-            <SearchContainer>
-
-                <TextField fullWidth id="contained"
-                           label="Search Movie"
-                           variant="filled"
-                           onChange={(event) => setSearchValue(event.target.value)}
-                           onKeyPress={(event) => handleKeyPress(event)}
-                />
-
-                <Popper open={popperIsOpen} anchorEl={popperAnchorElement} placement="right">
-                    <Box sx={{border: 1, p: 1, m: 2}}>
-                        Please fill the search area!
-                    </Box>
-                </Popper>
-
-                <Button id="searchButton" onClick={handleSearchRequest} variant="contained">Search</Button>
-            </SearchContainer>
-            <ResultContainer>
-                {data && (
-                    data.searchMovies.length === 0 ? <h1>No result</h1> :
-                        data.searchMovies.map(movie =>
-                            <Link key={movie.id} to={`/movie/${movie.id}`}>
-                                <MovieCard movie={movie}/>
-                            </Link>
-                        ))}
-            </ResultContainer>
+            <SearchComponent getMovies={getMovies} setSearchKeyword={setSearchKeyword}/>
+            {data && <MovieResultCardComponent movies={data.searchMovies}/>}
         </MainContentWrapper>
     );
 };
