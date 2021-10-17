@@ -11,8 +11,24 @@ import MovieThumbnail from "./CardComponents/MovieThumbnail";
 
 const MovieDetails = (props) => {
     const movieId = props.match.params.id;
+
+    function fetchWikiInfo(name) {
+        const baseUrl = `https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*&list=search&srlimit=1&srsearch=${name}&srnamespace=0&srprop=snippet`;
+        dataHandler._api_get(baseUrl, setWikiInfo, setWikiError, setWikiLoading)
+    }
+
+    function fetchImdbInfo(name) {
+        const baseUrl = `https://imdb-api.com/en/API/SearchMovie/k_13fjgtth/${name.toString()}`;
+        dataHandler._api_get(baseUrl, setImdbInfo, setImdbError, setImdbLoading)
+    }
+
     const {data, loading, error} = useQuery(GET_MOVIE_DETAILS, {
-        variables: {ID: movieId}
+        variables: {ID: movieId},
+        onCompleted: data => {
+            console.log('data ', data);
+            fetchWikiInfo(data.movie.name)
+            fetchImdbInfo(data.movie.name)
+        }
     });
 
     const [wikiInfo, setWikiInfo] = useState("");
