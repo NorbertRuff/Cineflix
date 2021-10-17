@@ -6,8 +6,24 @@ const WikiMiniCard = ({MovieInfo}) => {
     const wikiLinkUrl = `https://en.wikipedia.org/?curid=`;
     const wikiFetchBaseUrl = `https://en.wikipedia.org/w/api.php?`;
 
-    const wikiBaseFetchUrl = `https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*&list=search&srlimit=1&srsearch=${MovieInfo}&srnamespace=0&srprop=snippet`;
+    const wikiFetchConfig = {
+        action: 'query',
+        format: 'json',
+        origin: '*',
+        list: 'search',
+        srlimit: 1,
+        srsearch: MovieInfo,
+        srnamespace: 0,
+        srprop: 'snippet'
+    }
 
+    const createQueryString = (obj) => {
+        return Object.keys(obj)
+            .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(obj[k]))
+            .join('&');
+    }
+
+    const wikiFetchFullUrl = wikiFetchBaseUrl + createQueryString(wikiFetchConfig);
 
     const [wikiInfo, setWikiInfo] = useState("");
     const [wikiLoading, setWikiLoading] = useState(false);
@@ -15,8 +31,8 @@ const WikiMiniCard = ({MovieInfo}) => {
 
 
     useEffect(() => {
-        dataHandler._api_get(wikiBaseFetchUrl, setWikiInfo, setWikiError, setWikiLoading)
-    }, [MovieInfo, wikiBaseFetchUrl]);
+        dataHandler._api_get(wikiFetchFullUrl, setWikiInfo, setWikiError, setWikiLoading)
+    }, [wikiFetchFullUrl]);
 
     if (wikiLoading) {
         return (
