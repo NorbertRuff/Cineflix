@@ -6,8 +6,8 @@ const MovieThumbnail = ({movie}) => {
     return (
         <CardMedia
             component="img"
-            sx={{minWidth: 400}}
-            image={movie.img ? movie.img.url : NoPic}
+            sx={{maxWidth: 400}}
+            image={movie.img ? movie.img.medium : NoPic}
             alt={movie.name}
         />
     );

@@ -6,11 +6,10 @@ import NoPic from "../assets/img/nopic.png";
 
 
 const MovieCard = ({movie}) => {
-    console.log(movie)
     return (
         <CardWrapper key={movie.id}>
             <h2>{movie.name}</h2>
-            {<img src={movie.img ? movie.img.url : NoPic} alt={movie.name}/>}
+            {<img src={movie.img ? movie.img.medium : NoPic} alt={movie.name}/>}
             <h3>{convertIsoDate(movie.releaseDate)}</h3>
             <h3>
                 <Rating name="half-rating-read" defaultValue={roundHalf(movie.score)} precision={0.5} readOnly/>
