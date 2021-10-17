@@ -15,6 +15,13 @@ const MovieDetails = (props) => {
         variables: {ID: movieId}
     });
 
+    const [wikiInfo, setWikiInfo] = useState("");
+    const [wikiLoading, setWikiLoading] = useState(false);
+    const [wikiError, setWikiError] = useState(false);
+
+    const [imdbInfo, setImdbInfo] = useState("");
+    const [imdbLoading, setImdbLoading] = useState(false);
+    const [imdbError, setImdbError] = useState(false);
 
     if (loading) {
         return (
