@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import {Button, CardActions, CardContent, CircularProgress, Typography} from "@mui/material";
-import {dataHandler} from "../services/dataHandler";
+import {dataHandler} from "../../services/dataHandler";
 
-const WikiInfoCard = ({MovieInfo}) => {
-    const wikiBaseUrl = `https://en.wikipedia.org/?curid=`;
+const WikiMiniCard = ({MovieInfo}) => {
+    const wikiLinkUrl = `https://en.wikipedia.org/?curid=`;
+    const wikiFetchBaseUrl = `https://en.wikipedia.org/w/api.php?`;
 
     const wikiBaseFetchUrl = `https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*&list=search&srlimit=1&srsearch=${MovieInfo}&srnamespace=0&srprop=snippet`;
 
@@ -68,10 +69,10 @@ const WikiInfoCard = ({MovieInfo}) => {
             </CardContent>
             <CardActions>
                 {wikiInfo.query &&
-                <Button size="small" href={wikiBaseUrl + wikiInfo.query.search[0].pageid}>Learn More</Button>}
+                <Button size="small" href={wikiLinkUrl + wikiInfo.query.search[0].pageid}>Learn More</Button>}
             </CardActions>
         </>
     );
 };
 
-export default WikiInfoCard;
+export default WikiMiniCard;
