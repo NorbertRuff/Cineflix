@@ -60,7 +60,8 @@ const ImdbMiniCard = ({MovieInfo}) => {
             </CardContent>
             <CardActions>
                 {imdbInfo.results &&
-                <Button size="small" href={imdbBaseUrl + imdbInfo.results[0].id}>Check {imdbInfo.results[0].title} on
+                <Button target="_blank" size="small"
+                        href={imdbBaseUrl + imdbInfo.results[0].id}>Check {imdbInfo.results[0].title} on
                     Imdb</Button>}
             </CardActions>
         </>

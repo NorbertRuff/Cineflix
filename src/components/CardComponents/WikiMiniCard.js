@@ -85,7 +85,8 @@ const WikiMiniCard = ({MovieInfo}) => {
             </CardContent>
             <CardActions>
                 {wikiInfo.query &&
-                <Button size="small" href={wikiLinkUrl + wikiInfo.query.search[0].pageid}>Learn More</Button>}
+                <Button target="_blank" size="small" href={wikiLinkUrl + wikiInfo.query.search[0].pageid}>Learn
+                    More</Button>}
             </CardActions>
         </>
     );
