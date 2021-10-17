@@ -1,22 +1,22 @@
-import React, {useState} from 'react';
-import {Backdrop, CircularProgress} from "@mui/material";
+import React from 'react';
+import {useQuery} from "@apollo/client";
+import {GET_SIMILAR_MOVIE_DETAILS} from "../graphQL/Queries";
 import {ErrorMessage, LoadingMessage, MainContentWrapper} from "../styles/PageContainer.Style";
-import {useLazyQuery} from '@apollo/client';
-import {GET_MOVIES} from "../graphQL/Queries";
-import SearchComponent from "./SearchComponent";
+
 import MovieResultCardComponent from "./CardComponents/MovieResultComponent";
+import {Backdrop, CircularProgress} from "@mui/material";
+import RelatedMovieCard from "./RelatedMovieCard";
 
-const MainPage = () => {
+const RelatedMovies = (props) => {
 
-    const [searchKeyword, setSearchKeyword] = useState("");
+    const relatedMovieId = props.match.params.id;
 
-    const [getMovies, {loading, data, error}] = useLazyQuery(GET_MOVIES, {
-        variables: {keyWord: searchKeyword},
+    const {data, loading, error} = useQuery(GET_SIMILAR_MOVIE_DETAILS, {
+        variables: {ID: relatedMovieId},
         onCompleted: data => {
             // console.log('data ', data);
         }
     });
-
 
     if (loading) {
         return (
@@ -37,12 +37,14 @@ const MainPage = () => {
         );
     }
 
+
     return (
         <MainContentWrapper>
-            <SearchComponent getMovies={getMovies} setSearchKeyword={setSearchKeyword}/>
-            {data && <MovieResultCardComponent movies={data.searchMovies}/>}
+            <h1>Movies related to:</h1>
+            <RelatedMovieCard movie={data.movie}/>
+            {data && <MovieResultCardComponent movies={data.movie.similar}/>}
         </MainContentWrapper>
     );
 };
 
-export default MainPage;
+export default RelatedMovies;
