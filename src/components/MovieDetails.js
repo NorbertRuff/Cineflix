@@ -2,7 +2,7 @@ import React from 'react';
 import {ErrorMessage, LoadingMessage, MainContentWrapper} from "../styles/PageContainer.Style";
 import {useQuery} from "@apollo/client";
 import {GET_MOVIE_DETAILS} from "../graphQL/Queries";
-import {Backdrop, Box, Card, CardContent, CircularProgress} from "@mui/material";
+import {Backdrop, Box, Button, Card, CardContent, CircularProgress} from "@mui/material";
 import MovieHeader from "./CardComponents/MovieHeader";
 import MovieCast from "./CardComponents/MovieCast";
 import MovieCrew from "./CardComponents/MovieCrew";
@@ -11,6 +11,7 @@ import MovieThumbnail from "./CardComponents/MovieThumbnail";
 import {MovieDetailsWrapper} from "../styles/MovieDetails.Styled";
 import WikiMiniCard from "./CardComponents/WikiMiniCard";
 import ImdbMiniCard from "./CardComponents/ImdbMiniCard";
+import {Link} from "react-router-dom";
 
 
 const MovieDetails = (props) => {
@@ -66,6 +67,9 @@ const MovieDetails = (props) => {
                     </Card>
                     <Card className="imdbCard" sx={{marginBottom: 2}}>
                         <ImdbMiniCard MovieInfo={data.movie.name}/>
+                    </Card>
+                    <Card className="relatedLink" sx={{p: 2}}>
+                        <Link to={`/related/${data.movie.id}`}> ><Button>Find Similar movies</Button></Link>
                     </Card>
                 </Box>
             </MovieDetailsWrapper>
