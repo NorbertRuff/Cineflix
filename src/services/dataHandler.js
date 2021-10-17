@@ -1,5 +1,3 @@
-import axios from 'axios';
-
 const headers = {
     'Content-Type': 'application/json',
     'Accept': 'application/json',
@@ -31,11 +29,12 @@ export let dataHandler = {
      * @private
      */
     _api_get: function (url, callback, errorCallback, loadingCallback) {
-        axios
-            .get(url, config)
-            .then((response) => {
+        loadingCallback(true)
+        fetch(url, config)
+            .then(response => response.json())
+            .then((json_response) => {
                 if (callback !== undefined) {
-                    callback(response.data);
+                    callback(json_response);
                 }
             })
             .catch((error) => {
@@ -43,8 +42,7 @@ export let dataHandler = {
                     errorCallback(error.message);
                 }
                 console.error(
-                    `The request was made and the server responded
-        with a status code that falls out of the range of 2xx ` + error.message
+                    `The request was made and the server responded with a status code that falls out of the range of 2xx. Message: ` + error.message
                 );
             })
             .finally(() => {
@@ -64,16 +62,17 @@ export let dataHandler = {
      * @private
      */
     _api_post: function (url, data, callback, errorCallback, loadingCallback) {
-        axios
-            .post(url, data, {
-                method: 'POST',
-                headers: headers,
-            })
-            .then(response => {
+        fetch(url, {
+            method: 'POST',
+            headers: headers,
+            body: data,
+        })
+            .then(response => response.json())
+            .then(json_response => {
                 if (callback === undefined) {
-                    this._response = response.data;
+                    this._response = json_response;
                 } else {
-                    callback(response.data);
+                    callback(json_response);
                 }
             })
             .catch((error) => {
@@ -81,7 +80,7 @@ export let dataHandler = {
                     errorCallback(error.message);
                 }
                 console.error(
-                    `The request was made and the server responded with a status code that falls out of the range of 2xx `
+                    `The request was made and the server responded with a status code that falls out of the range of 2xx. Message: `
                     + error.message
                 );
             })

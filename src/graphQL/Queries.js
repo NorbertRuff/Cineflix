@@ -9,7 +9,7 @@ export const GET_MOVIES = gql`
                     score
                     releaseDate
                     img: poster {
-                        url: custom(size: "w185_and_h278_bestv2")
+                        medium
                     }
                     genres {
                     ... on Genre{
@@ -28,7 +28,8 @@ query getMovie($ID: ID!) {
     score
     releaseDate
     img: poster {
-      url: custom(size: "w185_and_h278_bestv2")
+      large
+      medium
     }
     backdrop {small}
     backdrop {large}
@@ -36,7 +37,7 @@ query getMovie($ID: ID!) {
       id
       person {
         name
-        photo {small}
+        images {small}
       }
       role {
         ... on Cast {
