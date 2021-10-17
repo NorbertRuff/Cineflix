@@ -9,9 +9,9 @@ import {Link} from "react-router-dom";
 
 const MainPage = () => {
     const KEYCODE_FOR_ENTER = 13;
-    const [anchorEl, setAnchorEl] = useState(null);
-    const open = Boolean(anchorEl);
-    const id = open ? 'simple-popper' : undefined;
+    const [popperAnchorElement, setPopperAnchorElement] = useState(null);
+    const popperIsOpen = Boolean(popperAnchorElement);
+
 
     const [searchValue, setSearchValue] = useState("");
     const [searchKeyword, setSearchKeyword] = useState("");
@@ -19,7 +19,7 @@ const MainPage = () => {
     const [getMovies, {loading, data, error}] = useLazyQuery(GET_MOVIES, {
         variables: {keyWord: searchKeyword},
         onCompleted: data => {
-            console.log('data ', data);
+            // console.log('data ', data);
         }
     });
 
@@ -34,8 +34,10 @@ const MainPage = () => {
         if (searchValue) {
             setSearchKeyword(searchValue);
             getMovies();
+            setPopperAnchorElement(null);
+            setSearchValue("")
         } else {
-            setAnchorEl(anchorEl ? null : event.currentTarget);
+            setPopperAnchorElement(popperAnchorElement ? null : document.getElementById("searchButton"));
         }
     }
 
@@ -73,12 +75,13 @@ const MainPage = () => {
                            onKeyPress={(event) => handleKeyPress(event)}
                 />
 
-                <Popper id={id} open={open} anchorEl={anchorEl} placement="right">
+                <Popper open={popperIsOpen} anchorEl={popperAnchorElement} placement="right">
                     <Box sx={{border: 1, p: 1, m: 2}}>
                         Please fill the search area!
                     </Box>
                 </Popper>
-                <Button onClick={handleSearchRequest} variant="contained">Search</Button>
+
+                <Button id="searchButton" onClick={handleSearchRequest} variant="contained">Search</Button>
             </SearchContainer>
             <ResultContainer>
                 {data && (
