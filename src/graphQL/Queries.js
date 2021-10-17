@@ -59,3 +59,37 @@ query getMovie($ID: ID!) {
     }
   }
 }`;
+
+export const GET_SIMILAR_MOVIE_DETAILS = gql`
+query getMovie($ID: ID!) {
+    movie(id: $ID) {
+        id
+        name
+        overview
+        score
+        releaseDate
+        img: poster {
+            medium
+        }
+        genres {
+        ... on Genre{
+                name
+            }
+        }
+        similar{
+          id
+            name
+            overview
+            score
+            releaseDate
+            img: poster {
+                medium
+            }
+            genres {
+            ... on Genre{
+                    name
+                }
+            }
+        }
+    }
+}`;
