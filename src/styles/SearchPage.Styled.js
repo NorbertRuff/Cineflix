@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const SearchContainer = styled.div`
   display: flex;
   justify-content: space-around;
-  margin: 4rem;
+  margin: 2rem;
   min-width: 40vw;
 `;
 
