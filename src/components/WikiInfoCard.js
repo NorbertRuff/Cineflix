@@ -1,9 +1,21 @@
-import React from 'react';
-import {Backdrop, Button, CardActions, CardContent, CircularProgress, Typography} from "@mui/material";
-import {ErrorMessage} from "../styles/PageContainer.Style";
+import React, {useEffect, useState} from 'react';
+import {Button, CardActions, CardContent, CircularProgress, Typography} from "@mui/material";
+import {dataHandler} from "../services/dataHandler";
 
-const WikiInfoCard = ({wikiInfo, wikiLoading, wikiError}) => {
+const WikiInfoCard = ({MovieInfo}) => {
     const wikiBaseUrl = `https://en.wikipedia.org/?curid=`;
+
+    const wikiBaseFetchUrl = `https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*&list=search&srlimit=1&srsearch=${MovieInfo}&srnamespace=0&srprop=snippet`;
+
+
+    const [wikiInfo, setWikiInfo] = useState("");
+    const [wikiLoading, setWikiLoading] = useState(false);
+    const [wikiError, setWikiError] = useState(false);
+
+
+    useEffect(() => {
+        dataHandler._api_get(wikiBaseFetchUrl, setWikiInfo, setWikiError, setWikiLoading)
+    }, [MovieInfo, wikiBaseFetchUrl]);
 
     if (wikiLoading) {
         return (
@@ -12,10 +24,7 @@ const WikiInfoCard = ({wikiInfo, wikiLoading, wikiError}) => {
                     Wiki info
                 </Typography>
                 <p>Data is loading...</p>
-                <Backdrop sx={{color: 'var(--clr-primary-200)', zIndex: (theme) => theme.zIndex.drawer + 1}}
-                          open={wikiLoading}>
-                    <CircularProgress color="inherit"/>
-                </Backdrop>
+                <CircularProgress color="inherit"/>
             </CardContent>
         )
     }
@@ -26,11 +35,23 @@ const WikiInfoCard = ({wikiInfo, wikiLoading, wikiError}) => {
                 <Typography sx={{fontSize: 14}} color="text.secondary" gutterBottom>
                     Wiki info
                 </Typography>
-                <ErrorMessage>An error occurred while fetching information!</ErrorMessage>
+                An error occurred while fetching information
             </CardContent>
 
         );
     }
+
+    if (wikiInfo && (wikiInfo.query.search).length === 0) {
+        return (
+            <CardContent>
+                <Typography sx={{fontSize: 14}} color="text.secondary" gutterBottom>
+                    Imdb info
+                </Typography>
+                <p>No result</p>
+            </CardContent>
+        )
+    }
+
     return (
         <>
             <CardContent>
