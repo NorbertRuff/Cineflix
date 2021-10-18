@@ -21,7 +21,7 @@ export const SEARCH_MOVIES_BY_KEYWORD = gql`
                         }
                     }
                 }
-            }`
+            }`;
 /**
  * query for movie details
  * @param ID movie id
