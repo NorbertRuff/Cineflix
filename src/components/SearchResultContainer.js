@@ -1,10 +1,10 @@
 import React from 'react';
-import {ResultContainer} from "../../styles/SearchPage.Styled";
+import {ResultContainer} from "../styles/SearchPage.Styled";
 import {Link} from "react-router-dom";
-import MovieCard from "../MovieCard";
+import MiniMovieCard from "./MiniMovieCard";
 import {Box, Button} from "@mui/material";
 
-const MovieResultCardComponent = ({movies, handleSearchRelatedMovies, setRelatedMovie}) => {
+const SearchResultContainer = ({movies, handleSearchRelatedMovies, setRelatedMovie}) => {
     return (
         <ResultContainer>
             {movies && (
@@ -12,9 +12,9 @@ const MovieResultCardComponent = ({movies, handleSearchRelatedMovies, setRelated
                     movies.map(movie =>
                         <Box key={movie.id} sx={{display: "flex", flexDirection: "column"}}>
                             <Link to={`/movie/${movie.id}`}>
-                                <MovieCard movie={movie}/>
+                                <MiniMovieCard movie={movie}/>
                             </Link>
-                            <Button onClick={() => {
+                            <Button variant="contained" color="secondary" sx={{m: 1}} onClick={() => {
                                 setRelatedMovie(movie);
                                 handleSearchRelatedMovies(movie.id)
                             }}>Find related Movies
@@ -25,4 +25,4 @@ const MovieResultCardComponent = ({movies, handleSearchRelatedMovies, setRelated
     );
 };
 
-export default MovieResultCardComponent;
+export default SearchResultContainer;

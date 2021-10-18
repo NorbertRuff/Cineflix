@@ -5,7 +5,7 @@ import {convertIsoDate, roundHalf} from "../utils/convertUtils";
 import NoPic from "../assets/img/nopic.png";
 
 
-const MovieCard = ({movie}) => {
+const MiniMovieCard = ({movie}) => {
     return (
         <CardWrapper key={movie.id}>
             <h2>{movie.name}</h2>
@@ -27,4 +27,4 @@ const MovieCard = ({movie}) => {
     );
 };
 
-export default MovieCard;
+export default MiniMovieCard;

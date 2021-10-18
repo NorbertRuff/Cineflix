@@ -3,11 +3,11 @@ import {useQuery} from "@apollo/client";
 import {GET_SIMILAR_MOVIE_DETAILS_BY_ID} from "../graphQL/Queries";
 import {ErrorMessage, LoadingMessage, MainContentWrapper} from "../styles/PageContainer.Style";
 
-import MovieResultCardComponent from "./CardComponents/MovieResultComponent";
+import SearchResultContainer from "./SearchResultContainer";
 import {Backdrop, CircularProgress} from "@mui/material";
 import RelatedMovieCard from "./RelatedMovieCard";
 
-const RelatedMovies = (props) => {
+const RelatedMoviesPage = (props) => {
 
     const relatedMovieId = props.match.params.id;
 
@@ -42,9 +42,9 @@ const RelatedMovies = (props) => {
         <MainContentWrapper>
             <h1>Movies related to:</h1>
             <RelatedMovieCard movie={data.movie}/>
-            {data && <MovieResultCardComponent movies={data.movie.similar}/>}
+            {data && <SearchResultContainer movies={data.movie.similar}/>}
         </MainContentWrapper>
     );
 };
 
-export default RelatedMovies;
+export default RelatedMoviesPage;

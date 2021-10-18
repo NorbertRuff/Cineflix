@@ -3,18 +3,18 @@ import {ErrorMessage, LoadingMessage, MainContentWrapper} from "../styles/PageCo
 import {useQuery} from "@apollo/client";
 import {GET_MOVIE_DETAILS_BY_ID} from "../graphQL/Queries";
 import {Backdrop, Box, Button, Card, CardContent, CircularProgress} from "@mui/material";
-import MovieHeader from "./CardComponents/MovieHeader";
-import MovieCast from "./CardComponents/MovieCast";
-import MovieCrew from "./CardComponents/MovieCrew";
-import MovieOverView from "./CardComponents/MovieOverView";
-import MovieThumbnail from "./CardComponents/MovieThumbnail";
-import {MovieDetailsWrapper} from "../styles/MovieDetails.Styled";
+import CardTitle from "./CardComponents/CardTitle";
+import CardCastList from "./CardComponents/CardCastList";
+import CardCrewList from "./CardComponents/CardCrewList";
+import CardOverview from "./CardComponents/CardOverview";
+import CardThumbnail from "./CardComponents/CardThumbnail";
+import {ContentWrapper, MovieDetailsWrapper, PersonContainer} from "../styles/MovieDetails.Styled";
 import WikiMiniCard from "./CardComponents/WikiMiniCard";
 import ImdbMiniCard from "./CardComponents/ImdbMiniCard";
 import {Link} from "react-router-dom";
 
 
-const MovieDetails = (props) => {
+const MovieDetailsPage = (props) => {
     const movieId = props.match.params.id;
 
     const {data, loading, error} = useQuery(GET_MOVIE_DETAILS_BY_ID, {
@@ -47,18 +47,18 @@ const MovieDetails = (props) => {
         <MainContentWrapper backDrop={data.movie.backdrop !== null ? data.movie.backdrop.large : undefined}>
             <MovieDetailsWrapper>
                 <Card className="mainCard"
-                      sx={{maxHeight: 800, maxWidth: 1200, backgroundColor: "rgba(255,255,255,0.8)"}}>
-                    <MovieHeader movie={data.movie}/>
-                    <Box sx={{display: 'flex', flexDirection: 'row'}}>
-                        <MovieThumbnail movie={data.movie}/>
-                        <CardContent>
-                            <MovieOverView overview={data.movie.overview}/>
-                            <Box sx={{display: "flex", justifyContent: "space-evenly"}}>
-                                <MovieCast cast={data.movie.cast}/>
-                                <MovieCrew crew={data.movie.crew}/>
-                            </Box>
+                      sx={{maxWidth: 1200, backgroundColor: "rgba(255,255,255,0.8)"}}>
+                    <CardTitle movie={data.movie}/>
+                    <ContentWrapper>
+                        <CardThumbnail movie={data.movie}/>
+                        <CardContent sx={{minWidth: 200}}>
+                            <CardOverview overview={data.movie.overview}/>
+                            <PersonContainer>
+                                <CardCastList cast={data.movie.cast}/>
+                                <CardCrewList crew={data.movie.crew}/>
+                            </PersonContainer>
                         </CardContent>
-                    </Box>
+                    </ContentWrapper>
 
                 </Card>
                 <Box sx={{maxWidth: 400, display: "flex", flexDirection: "column"}}>
@@ -77,4 +77,4 @@ const MovieDetails = (props) => {
     );
 };
 
-export default MovieDetails;
+export default MovieDetailsPage;
