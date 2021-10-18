@@ -88,7 +88,6 @@ describe('Search movie tests', () => {
             fireEvent.change(inputElement, {target: {value: "Fight Club"}});
             fireEvent.click(searchButtonElement);
         });
-        console.log()
 
 
         // it('renders without error', () => {
