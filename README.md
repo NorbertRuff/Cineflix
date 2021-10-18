@@ -1,4 +1,4 @@
-![logo](https://raw.githubusercontent.com/NorbertRuff/apex-project/development/blob/Screenshot%20from%202021-10-18%2023-02-39.png)
+![logo](https://github.com/NorbertRuff/apex-project/blob/development/blob/Screenshot%20from%202021-10-18%2023-02-39.png?raw=true)
 ## <div style="color:#f59800" align="center">---|Welcome to my Apex Lab homework Project 👋|---</div>
 <div align="center">
   
@@ -46,14 +46,13 @@ A purely front-end (react) JavaScript application to help you find movies!
 <div align="center">
   
 
-![screenshot](https://raw.githubusercontent.com/NorbertRuff/apex-project/development/blob/Screenshot%20from%202021-10-18%2022-47-53.png)
+![screenshot](https://github.com/NorbertRuff/apex-project/blob/development/blob/Screenshot%20from%202021-10-18%2022-47-53.png?raw=true)
   
-![screenshot](https://raw.githubusercontent.com/NorbertRuff/apex-project/development/blob/Screenshot%20from%202021-10-18%2022-48-20.png)
+![screenshot](https://github.com/NorbertRuff/apex-project/blob/development/blob/Screenshot%20from%202021-10-18%2022-48-20.png?raw=true)
 
-![screenshot](https://raw.githubusercontent.com/NorbertRuff/apex-project/development/blob/Screenshot%20from%202021-10-18%2022-49-54.png)
+![screenshot](https://github.com/NorbertRuff/apex-project/blob/development/blob/Screenshot%20from%202021-10-18%2022-49-54.png?raw=true)
 
-![screenshot](https://raw.githubusercontent.com/NorbertRuff/apex-project/development/blob/Screenshot%20from%202021-10-18%2022-50-36.png)
-
+![screenshot](https://github.com/NorbertRuff/apex-project/blob/development/blob/Screenshot%20from%202021-10-18%2022-50-36.png?raw=true)
 
 
 </div>
@@ -62,8 +61,8 @@ A purely front-end (react) JavaScript application to help you find movies!
 
 **API-s used** 
 
-[Imdb-API](https://imdb-api.com)
-[Wikipedia-API](https://www.mediawiki.org/wiki/API:Main_page)
+- [Imdb-API](https://imdb-api.com)
+- [Wikipedia-API](https://www.mediawiki.org/wiki/API:Main_page)
 
 
 # <div style="color:#f59800" align="center">---|Usage|---</div>
@@ -77,14 +76,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Clone the project
 
 ```bash
-  git clone https://github.com/marta-kowalska/share-n-drive-backend
-  git clone https://github.com/NorbertRuff/share-n-drive-frontend
+  git clone https://github.com/NorbertRuff/apex-project
 ```
 
 Go to the project directory
 
 ```bash
-  cd my-project
+  cd apex-project
 ```
 
 Install dependencies
@@ -105,7 +103,7 @@ Open http://localhost:3000 to view it in the browser.
 
 To get the Imdb links in this project, you will need to add the following environment variable to your .env file
 
-`public_key` from [Imdb-API](https://imdb-api.com)
+`private-key` from [Imdb-API](https://imdb-api.com)
 
 
 Create.env file in root:
