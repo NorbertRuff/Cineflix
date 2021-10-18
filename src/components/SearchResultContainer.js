@@ -8,7 +8,6 @@ const SearchResultContainer = ({movies, handleSearchRelatedMovies, setRelatedMov
     return (
         <ResultContainer data-testid="result_div">
             {movies && (
-                movies.length === 0 ? <h1>No result</h1> :
                     movies.map(movie =>
                         <Box key={movie.id} sx={{display: "flex", flexDirection: "column"}}>
                             <Link to={`/movie/${movie.id}`}>
