@@ -34,12 +34,10 @@ A purely front-end (react) JavaScript application to help you find movies!
 
 ## 💺Features
 
-- add / remove car data from database
-- filter available cars according to provided criteria
-- accept client requests and send responses according to RESTful principles
+- Search movies from database
+- Search similar movies
+- Movie details page
 - Responsive
-- Fullscreen mode
-- Cross platform
 
 
 ## Screenshots
