@@ -19,7 +19,7 @@ const MainPage = () => {
         getRelatedMovies();
     };
 
-    const [getMovies, {loading, data, error}] = useLazyQuery(SEARCH_MOVIES_BY_KEYWORD, {
+    const [getMoviesByKeyword, {loading, data, error}] = useLazyQuery(SEARCH_MOVIES_BY_KEYWORD, {
         variables: {keyWord: searchKeyword},
         onCompleted: data => {
             setMovies(data.searchMovies)
@@ -28,16 +28,14 @@ const MainPage = () => {
     });
 
 
-    const [getRelatedMovies, {
-        loading: relatedMoviesLoading,
-        error: relatedMoviesError
-    }] = useLazyQuery(GET_SIMILAR_MOVIE_DETAILS_BY_ID, {
-        variables: {ID: relatedId},
-        onCompleted: data => {
-            setMovies(data.movie.similar)
-            // console.log('data ', data);
-        }
-    });
+    const [getRelatedMovies, {loading: relatedMoviesLoading, error: relatedMoviesError}] =
+        useLazyQuery(GET_SIMILAR_MOVIE_DETAILS_BY_ID, {
+            variables: {ID: relatedId},
+            onCompleted: data => {
+                setMovies(data.movie.similar)
+                // console.log('data ', data);
+            }
+        });
 
     if (loading || relatedMoviesLoading) {
         return (
@@ -60,7 +58,7 @@ const MainPage = () => {
 
     return (
         <MainContentWrapper>
-            <SearchComponent getMovies={getMovies} setSearchKeyword={setSearchKeyword}/>
+            <SearchComponent getMoviesByKeyword={getMoviesByKeyword} setSearchKeyword={setSearchKeyword}/>
             {relatedId ?
                 <>
                     <h1>Movies related to: {relatedMovie.name}</h1>
