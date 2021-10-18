@@ -4,7 +4,7 @@ import {ErrorMessage, LoadingMessage, MainContentWrapper} from "../styles/PageCo
 import {useLazyQuery} from '@apollo/client';
 import {GET_SIMILAR_MOVIE_DETAILS_BY_ID, SEARCH_MOVIES_BY_KEYWORD} from "../graphQL/Queries";
 import SearchComponent from "./SearchComponent";
-import MovieResultCardComponent from "./CardComponents/MovieResultComponent";
+import MovieResultCardComponent from "./MovieResultComponent";
 import RelatedMovieCard from "./RelatedMovieCard";
 
 const MainPage = () => {

@@ -1,7 +1,7 @@
 import React from 'react';
-import {ResultContainer} from "../../styles/SearchPage.Styled";
+import {ResultContainer} from "../styles/SearchPage.Styled";
 import {Link} from "react-router-dom";
-import MovieCard from "../MovieCard";
+import MovieCard from "./MovieCard";
 import {Box, Button} from "@mui/material";
 
 const MovieResultCardComponent = ({movies, handleSearchRelatedMovies, setRelatedMovie}) => {
