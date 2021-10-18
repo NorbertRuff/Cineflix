@@ -4,7 +4,7 @@ import {ErrorMessage, LoadingMessage, MainContentWrapper} from "../styles/PageCo
 import {useLazyQuery} from '@apollo/client';
 import {GET_SIMILAR_MOVIE_DETAILS_BY_ID, SEARCH_MOVIES_BY_KEYWORD} from "../graphQL/Queries";
 import SearchComponent from "./SearchComponent";
-import MovieResultCardComponent from "./MovieResultComponent";
+import SearchResultContainer from "./SearchResultContainer";
 import RelatedMovieCard from "./RelatedMovieCard";
 
 const MainPage = () => {
@@ -65,8 +65,8 @@ const MainPage = () => {
                     <RelatedMovieCard movie={relatedMovie}/>
                 </>
                 : ""}
-            {data && <MovieResultCardComponent handleSearchRelatedMovies={handleSearchRelatedMovies}
-                                               setRelatedMovie={setRelatedMovie} movies={movies}/>}
+            {data && <SearchResultContainer handleSearchRelatedMovies={handleSearchRelatedMovies}
+                                            setRelatedMovie={setRelatedMovie} movies={movies}/>}
         </MainContentWrapper>
     );
 };

@@ -8,7 +8,7 @@ import CardCastList from "./CardComponents/CardCastList";
 import CardCrewList from "./CardComponents/CardCrewList";
 import CardOverview from "./CardComponents/CardOverview";
 import CardThumbnail from "./CardComponents/CardThumbnail";
-import {MovieDetailsWrapper, PersonContainer} from "../styles/MovieDetails.Styled";
+import {ContentWrapper, MovieDetailsWrapper, PersonContainer} from "../styles/MovieDetails.Styled";
 import WikiMiniCard from "./CardComponents/WikiMiniCard";
 import ImdbMiniCard from "./CardComponents/ImdbMiniCard";
 import {Link} from "react-router-dom";
@@ -49,7 +49,7 @@ const MovieDetailsPage = (props) => {
                 <Card className="mainCard"
                       sx={{maxWidth: 1200, backgroundColor: "rgba(255,255,255,0.8)"}}>
                     <CardTitle movie={data.movie}/>
-                    <Box sx={{display: 'flex', flexDirection: 'row'}}>
+                    <ContentWrapper>
                         <CardThumbnail movie={data.movie}/>
                         <CardContent sx={{minWidth: 200}}>
                             <CardOverview overview={data.movie.overview}/>
@@ -58,7 +58,7 @@ const MovieDetailsPage = (props) => {
                                 <CardCrewList crew={data.movie.crew}/>
                             </PersonContainer>
                         </CardContent>
-                    </Box>
+                    </ContentWrapper>
 
                 </Card>
                 <Box sx={{maxWidth: 400, display: "flex", flexDirection: "column"}}>
