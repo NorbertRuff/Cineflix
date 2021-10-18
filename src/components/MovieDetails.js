@@ -1,7 +1,7 @@
 import React from 'react';
 import {ErrorMessage, LoadingMessage, MainContentWrapper} from "../styles/PageContainer.Style";
 import {useQuery} from "@apollo/client";
-import {GET_MOVIE_DETAILS} from "../graphQL/Queries";
+import {GET_MOVIE_DETAILS_BY_ID} from "../graphQL/Queries";
 import {Backdrop, Box, Button, Card, CardContent, CircularProgress} from "@mui/material";
 import MovieHeader from "./CardComponents/MovieHeader";
 import MovieCast from "./CardComponents/MovieCast";
@@ -17,7 +17,7 @@ import {Link} from "react-router-dom";
 const MovieDetails = (props) => {
     const movieId = props.match.params.id;
 
-    const {data, loading, error} = useQuery(GET_MOVIE_DETAILS, {
+    const {data, loading, error} = useQuery(GET_MOVIE_DETAILS_BY_ID, {
         variables: {ID: movieId},
         onCompleted: data => {
             // console.log('data ', data);

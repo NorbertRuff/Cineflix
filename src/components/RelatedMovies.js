@@ -1,6 +1,6 @@
 import React from 'react';
 import {useQuery} from "@apollo/client";
-import {GET_SIMILAR_MOVIE_DETAILS} from "../graphQL/Queries";
+import {GET_SIMILAR_MOVIE_DETAILS_BY_ID} from "../graphQL/Queries";
 import {ErrorMessage, LoadingMessage, MainContentWrapper} from "../styles/PageContainer.Style";
 
 import MovieResultCardComponent from "./CardComponents/MovieResultComponent";
@@ -11,7 +11,7 @@ const RelatedMovies = (props) => {
 
     const relatedMovieId = props.match.params.id;
 
-    const {data, loading, error} = useQuery(GET_SIMILAR_MOVIE_DETAILS, {
+    const {data, loading, error} = useQuery(GET_SIMILAR_MOVIE_DETAILS_BY_ID, {
         variables: {ID: relatedMovieId},
         onCompleted: data => {
             // console.log('data ', data);
