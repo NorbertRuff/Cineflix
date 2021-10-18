@@ -4,9 +4,11 @@ import {Typography} from "@mui/material";
 const CardOverview = ({overview}) => {
     return (
         <>
-            <Typography variant="h4" color="text.primary"
-                        sx={{marginY: 1, fontSize: "clamp(1rem, 2vw, 1.5rem)"}}>Overview</Typography>
-            <Typography variant="body1" color="text.secondary" sx={{m: 1}}>
+            <Typography variant="h4"
+                        color="text.primary"
+                        marginY="1rem"
+                        sx={{fontSize: "clamp(1rem, 2vw, 1.5rem)"}}>Overview</Typography>
+            <Typography margin="1rem" variant="body1" color="text.secondary">
                 {overview}
             </Typography>
         </>
