@@ -37,7 +37,7 @@ const WikiMiniCard = ({MovieInfo}) => {
     if (wikiLoading) {
         return (
             <CardContent>
-                <Typography sx={{fontSize: 14}} color="text.secondary" gutterBottom>
+                <Typography fontSize="14px" color="text.secondary" gutterBottom>
                     Wiki info
                 </Typography>
                 <p>Data is loading...</p>
@@ -49,7 +49,7 @@ const WikiMiniCard = ({MovieInfo}) => {
     if (wikiError) {
         return (
             <CardContent>
-                <Typography sx={{fontSize: 14}} color="text.secondary" gutterBottom>
+                <Typography fontSize="14px" color="text.secondary" gutterBottom>
                     Wiki info
                 </Typography>
                 An error occurred while fetching information
@@ -61,7 +61,7 @@ const WikiMiniCard = ({MovieInfo}) => {
     if (wikiInfo && (wikiInfo.query.search).length === 0) {
         return (
             <CardContent>
-                <Typography sx={{fontSize: 14}} color="text.secondary" gutterBottom>
+                <Typography fontSize="14px" color="text.secondary" gutterBottom>
                     Imdb info
                 </Typography>
                 <p>No result</p>
@@ -72,7 +72,7 @@ const WikiMiniCard = ({MovieInfo}) => {
     return (
         <>
             <CardContent>
-                <Typography sx={{fontSize: 14}} color="text.secondary" gutterBottom>
+                <Typography fontSize="14px" color="text.secondary" gutterBottom>
                     Wiki info
                 </Typography>
                 <Typography variant="h5" component="div">

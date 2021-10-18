@@ -4,8 +4,9 @@ import {Avatar, List, ListItem, ListItemText, Typography} from "@mui/material";
 const CardCastList = ({cast}) => {
     return (
         <List sx={{width: 300}}>
-            <Typography variant="h5" color="text.primary"
-                        sx={{marginY: 1}}>Cast</Typography>
+            <Typography variant="h5"
+                        color="text.primary"
+                        marginY="1rem">Cast</Typography>
             {cast && (cast.map(person =>
                 <ListItem key={person.id}>
                     <Avatar

@@ -19,7 +19,7 @@ const ImdbMiniCard = ({MovieInfo}) => {
     if (imdbLoading) {
         return (
             <CardContent>
-                <Typography sx={{fontSize: 14}} color="text.secondary" gutterBottom>
+                <Typography fontSize="14px" color="text.secondary" gutterBottom>
                     Imdb info
                 </Typography>
                 <p>Data is loading...</p>
@@ -31,7 +31,7 @@ const ImdbMiniCard = ({MovieInfo}) => {
     if (imdbInfo.results === null) {
         return (
             <CardContent>
-                <Typography sx={{fontSize: 14}} color="text.secondary" gutterBottom>
+                <Typography fontSize="14px" color="text.secondary" gutterBottom>
                     Imdb info
                 </Typography>
                 <p>{imdbInfo.errorMessage ? "Error with Imdb api: " + imdbInfo.errorMessage : "No result"}</p>
@@ -43,7 +43,7 @@ const ImdbMiniCard = ({MovieInfo}) => {
     if (imdbError || imdbInfo.errorMessage) {
         return (
             <CardContent>
-                <Typography sx={{fontSize: 14}} color="text.secondary" gutterBottom>
+                <Typography fontSize="14px" color="text.secondary" gutterBottom>
                     Imdb info
                 </Typography>
                 An error occurred while fetching information! {imdbInfo.errormessage}
@@ -54,7 +54,7 @@ const ImdbMiniCard = ({MovieInfo}) => {
     return (imdbInfo &&
         <>
             <CardContent>
-                <Typography sx={{fontSize: 14}} color="text.secondary" gutterBottom>
+                <Typography fontSize="14px" color="text.secondary" gutterBottom>
                     Imdb info
                 </Typography>
             </CardContent>

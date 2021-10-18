@@ -12,11 +12,13 @@ const SearchComponent = ({getMoviesByKeyword, setSearchKeyword}) => {
     function handleSearchRequest(event) {
         if (searchValue) {
             setSearchKeyword(searchValue);
+            setSearchValue("")
+            document.getElementById("searchbar").value = "";
             getMoviesByKeyword();
             setPopperAnchorElement(null);
-            setSearchValue("")
         } else {
             setPopperAnchorElement(popperAnchorElement ? null : document.getElementById("searchButton"));
+            setSearchValue("")
         }
     }
 
@@ -34,13 +36,15 @@ const SearchComponent = ({getMoviesByKeyword, setSearchKeyword}) => {
                 <Typography variant="h5">Search for a movie</Typography>
             </TitleContainer>
             <SearchContainer>
-                <TextField fullWidth id="contained"
+                <TextField fullWidth id="searchbar"
+                           data-testid="searchbar"
                            label="Movie title"
                            variant="filled"
                            style={{
                                backgroundColor: "rgba(255,255,255,0.1)"
                            }}
                            InputProps={{
+                               id: "searchbar",
                                style: {
                                    fontSize: "1.3rem",
                                    color: "white"
@@ -48,7 +52,9 @@ const SearchComponent = ({getMoviesByKeyword, setSearchKeyword}) => {
                            }}
                            color="info"
                            onChange={(event) => setSearchValue(event.target.value)}
-                           onKeyPress={(event) => handleKeyPress(event)}
+                           onKeyPress={(event) => {
+                               handleKeyPress(event)
+                           }}
                 />
                 <Popper open={popperIsOpen} anchorEl={popperAnchorElement} placement="right">
                     <Box sx={{border: 1, p: 1, m: 2}}>

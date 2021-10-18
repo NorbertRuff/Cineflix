@@ -33,9 +33,19 @@ export const Header = styled.div`
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
   border-bottom: 1px solid var(--clr-accent);
 
+  span {
+    color: var(--clr-accent);
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    font-family: var(--ff-body-light);
+    border: 4px solid var(--clr-accent);
+  }
+
   h2 {
     margin-left: 1rem;
-    color: var(--clr-accent);
+    padding: 10px;
+    color: var(--clr-light);
     font-size: 2rem;
     font-family: var(--ff-body-bold);
 

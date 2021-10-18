@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Backdrop, CircularProgress} from "@mui/material";
+import {Backdrop, CircularProgress, Typography} from "@mui/material";
 import {ErrorMessage, LoadingMessage, MainContentWrapper} from "../styles/PageContainer.Style";
 import {useLazyQuery} from '@apollo/client';
 import {GET_SIMILAR_MOVIE_DETAILS_BY_ID, SEARCH_MOVIES_BY_KEYWORD} from "../graphQL/Queries";
@@ -56,6 +56,11 @@ const MainPage = () => {
         );
     }
 
+    function getElementCount() {
+        return movies && (movies.length === 0 ? <h1>No result</h1> :
+            <Typography fontSize="18px" marginBottom="1rem"> {movies.length} movies found</Typography>);
+    }
+
     return (
         <MainContentWrapper>
             <SearchComponent getMoviesByKeyword={getMoviesByKeyword} setSearchKeyword={setSearchKeyword}/>
@@ -65,6 +70,7 @@ const MainPage = () => {
                     <RelatedMovieCard movie={relatedMovie}/>
                 </>
                 : ""}
+            {getElementCount()}
             {data && <SearchResultContainer handleSearchRelatedMovies={handleSearchRelatedMovies}
                                             setRelatedMovie={setRelatedMovie} movies={movies}/>}
         </MainContentWrapper>
