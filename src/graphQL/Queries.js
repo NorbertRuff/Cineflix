@@ -1,6 +1,10 @@
 import {gql} from "@apollo/client";
 
-export const GET_MOVIES = gql`
+/**
+ * query for searching movie details that matches keyword
+ * @param keyWord string
+ */
+export const SEARCH_MOVIES_BY_KEYWORD = gql`
                 query SearchMovies($keyWord: String!) {
                 searchMovies(query: $keyWord) {
                     id
@@ -17,9 +21,12 @@ export const GET_MOVIES = gql`
                         }
                     }
                 }
-            }`
-
-export const GET_MOVIE_DETAILS = gql`
+            }`;
+/**
+ * query for movie details
+ * @param ID movie id
+ */
+export const GET_MOVIE_DETAILS_BY_ID = gql`
 query getMovie($ID: ID!) {
   movie(id: $ID) {
     id
@@ -59,8 +66,11 @@ query getMovie($ID: ID!) {
     }
   }
 }`;
-
-export const GET_SIMILAR_MOVIE_DETAILS = gql`
+/**
+ * query for related movies
+ * @param ID movie id
+ */
+export const GET_SIMILAR_MOVIE_DETAILS_BY_ID = gql`
 query getMovie($ID: ID!) {
     movie(id: $ID) {
         id
