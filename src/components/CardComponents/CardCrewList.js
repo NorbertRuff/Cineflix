@@ -2,7 +2,7 @@ import React from 'react';
 import {List, ListItem, ListItemText, Typography} from "@mui/material";
 
 
-const MovieCrew = ({crew}) => {
+const CardCrewList = ({crew}) => {
     return (
         <List sx={{width: 300}}>
             <Typography variant="h5" color="text.primary"
@@ -17,4 +17,4 @@ const MovieCrew = ({crew}) => {
     );
 };
 
-export default MovieCrew;
+export default CardCrewList;

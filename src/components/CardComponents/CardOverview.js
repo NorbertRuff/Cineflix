@@ -1,10 +1,11 @@
 import React from 'react';
 import {Typography} from "@mui/material";
 
-const MovieOverView = ({overview}) => {
+const CardOverview = ({overview}) => {
     return (
         <>
-            <Typography variant="h4" color="text.primary" sx={{marginY: 1}}>Overview</Typography>
+            <Typography variant="h4" color="text.primary"
+                        sx={{marginY: 1, fontSize: "clamp(1rem, 2vw, 1.5rem)"}}>Overview</Typography>
             <Typography variant="body2" color="text.secondary" sx={{m: 1}}>
                 {overview}
             </Typography>
@@ -12,4 +13,4 @@ const MovieOverView = ({overview}) => {
     );
 };
 
-export default MovieOverView;
+export default CardOverview;

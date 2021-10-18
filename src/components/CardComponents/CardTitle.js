@@ -2,7 +2,7 @@ import React from 'react';
 import {Avatar, Box, CardHeader, Rating, Typography} from "@mui/material";
 import {convertIsoDate, ratingLabels, roundHalf} from "../../utils/convertUtils";
 
-const MovieHeader = ({movie}) => {
+const CardTitle = ({movie}) => {
     return (
         <CardHeader
             avatar={
@@ -12,7 +12,11 @@ const MovieHeader = ({movie}) => {
             }
             sx={{backgroundColor: "rgba(45, 225, 175, 0.7)"}}
             title={movie.name}
-            titleTypographyProps={{variant: "h3"}}
+            titleTypographyProps={{
+                variant: "h3",
+                fontSize: "clamp(0.7rem, 2vw, 1.5rem)",
+                fontFamily: "var(--ff-body-bold)"
+            }}
             subheaderTypographyProps={{marginX: 4, fontSize: 20}}
             subheader={"On air: " + convertIsoDate(movie.releaseDate)}
             action={
@@ -30,4 +34,4 @@ const MovieHeader = ({movie}) => {
     );
 };
 
-export default MovieHeader;
+export default CardTitle;
