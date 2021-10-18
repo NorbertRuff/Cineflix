@@ -146,9 +146,13 @@ Give a ⭐️ if this project helped you!
 - 📫 How to reach me **ruffnorbert88@gmail.com**
 
 <h3 align="left">Connect with me:</h3>
+
 ## <div style="color:#f59800" align="center">---|🔗 Links|---</div>
+
 [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://github.com/NorbertRuff)
-[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ruff-norbert-6b167b204/)
+
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ruff-norbert/)
+
 
 <h2><img src="https://media.giphy.com/media/cj87CxfRtrUifF3Ryk/giphy.gif" height="25"> My Github Stats</h2>
 
