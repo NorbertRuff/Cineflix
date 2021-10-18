@@ -17,8 +17,8 @@ function App() {
         <ApolloProvider client={client}>
             <BrowserRouter>
                 <PageContainerStyle>
-                    <Header>
-                        <Link to={"/"}><h2>Apex Lab homework</h2></Link>
+                    <Header role="header">
+                        <Link data-testid="homeLink" to={"/"}><h2>Apex <span>Lab</span> homework</h2></Link>
                         <GithubCorner href="https://github.com/NorbertRuff/apex-project" size="60" octoColor=""
                                       bannerColor="#2DE1AF"/>
                     </Header>
@@ -31,7 +31,7 @@ function App() {
                         <Route path="/related/:id"
                                render={(props) => <RelatedMoviesPage {...props}/>}/>
                     </Switch>
-                    <Footer>
+                    <Footer role="footer">
                         <h4>Created by Ruff Norbert</h4>
                     </Footer>
                 </PageContainerStyle>
