@@ -1,10 +1,10 @@
 import {Footer, Header, PageContainerStyle} from "./styles/PageContainer.Style";
 import MainPage from "./components/MainPage";
-import MovieDetails from "./components/MovieDetails";
+import MovieDetailsPage from "./components/MovieDetailsPage";
 import {ApolloClient, ApolloProvider, InMemoryCache,} from "@apollo/client";
 import GithubCorner from "react-github-corner";
 import {BrowserRouter, Link, Route, Switch} from "react-router-dom";
-import RelatedMovies from "./components/RelatedMovies";
+import RelatedMoviesPage from "./components/RelatedMoviesPage";
 
 
 const client = new ApolloClient({
@@ -27,9 +27,9 @@ function App() {
                             <MainPage/>
                         </Route>
                         <Route path="/movie/:id"
-                               render={(props) => <MovieDetails {...props}/>}/>
+                               render={(props) => <MovieDetailsPage {...props}/>}/>
                         <Route path="/related/:id"
-                               render={(props) => <RelatedMovies {...props}/>}/>
+                               render={(props) => <RelatedMoviesPage {...props}/>}/>
                     </Switch>
                     <Footer>
                         <h4>Created by Ruff Norbert</h4>
