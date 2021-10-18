@@ -6,7 +6,7 @@ import {Box, Button} from "@mui/material";
 
 const SearchResultContainer = ({movies, handleSearchRelatedMovies, setRelatedMovie}) => {
     return (
-        <ResultContainer>
+        <ResultContainer data-testid="result_div">
             {movies && (
                 movies.length === 0 ? <h1>No result</h1> :
                     movies.map(movie =>
