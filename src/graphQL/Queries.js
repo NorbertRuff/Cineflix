@@ -35,7 +35,6 @@ query getMovie($ID: ID!) {
     score
     releaseDate
     img: poster {
-      large
       medium
     }
     backdrop {small}
