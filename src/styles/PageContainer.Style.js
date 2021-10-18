@@ -34,7 +34,7 @@ export const Header = styled.div`
   border-bottom: 1px solid var(--clr-accent);
 
   h2 {
-    margin-left: 2rem;
+    margin-left: 1rem;
     color: var(--clr-accent);
     font-size: 2rem;
     font-family: var(--ff-body-bold);

@@ -14,7 +14,7 @@ const MovieResultCardComponent = ({movies, handleSearchRelatedMovies, setRelated
                             <Link to={`/movie/${movie.id}`}>
                                 <MovieCard movie={movie}/>
                             </Link>
-                            <Button onClick={() => {
+                            <Button variant="contained" color="secondary" sx={{m: 1}} onClick={() => {
                                 setRelatedMovie(movie);
                                 handleSearchRelatedMovies(movie.id)
                             }}>Find related Movies

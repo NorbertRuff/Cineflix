@@ -6,7 +6,7 @@ const CardThumbnail = ({movie}) => {
     return (
         <CardMedia
             component="img"
-            sx={{maxWidth: 400}}
+            sx={{width: "clamp(200px,350px,400px)"}}
             image={movie.img ? movie.img.medium : NoPic}
             alt={movie.name}
         />

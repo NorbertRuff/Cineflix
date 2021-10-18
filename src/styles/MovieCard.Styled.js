@@ -56,7 +56,7 @@ export const RelatedCardWrapper = styled.div`
   text-align: center;
   margin: 2rem;
   grid-template-columns: 40% 20% 20% 20%;
-  grid-template-rows: 10% 20% 50% 20%;
+  grid-template-rows: 10% 20% 60% 10%;
   grid-template-areas:
     "Thumbnail ReleaseDate . Rating"
     "Thumbnail Title Title Title"
@@ -92,6 +92,8 @@ export const OverView = styled.div`
 
 export const RelatedGenresContainer = styled.div`
   background-color: var(--clr-primary-400);
+  display: flex;
+  justify-content: space-evenly;
   height: 100%;
   grid-area: Genres;
   padding: var(--fs-base);

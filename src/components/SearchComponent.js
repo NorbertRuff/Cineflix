@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {SearchContainer, TitleContainer} from "../styles/SearchPage.Styled";
-import {Box, Button, Popper, TextField} from "@mui/material";
+import {Box, Button, Popper, TextField, Typography} from "@mui/material";
 
 const SearchComponent = ({getMoviesByKeyword, setSearchKeyword}) => {
     const KEYCODE_FOR_ENTER = 13;
@@ -30,13 +30,23 @@ const SearchComponent = ({getMoviesByKeyword, setSearchKeyword}) => {
     return (
         <>
             <TitleContainer>
-                <h1>Welcome</h1>
-                <h3>Search for a movie</h3>
+                <Typography variant="h3">Movie finder</Typography>
+                <Typography variant="h5">Search for a movie</Typography>
             </TitleContainer>
             <SearchContainer>
                 <TextField fullWidth id="contained"
-                           label="Search Movie"
+                           label="Movie title"
                            variant="filled"
+                           style={{
+                               backgroundColor: "rgba(255,255,255,0.1)"
+                           }}
+                           InputProps={{
+                               style: {
+                                   fontSize: "1.3rem",
+                                   color: "white"
+                               }
+                           }}
+                           color="info"
                            onChange={(event) => setSearchValue(event.target.value)}
                            onKeyPress={(event) => handleKeyPress(event)}
                 />
