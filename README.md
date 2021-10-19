@@ -4,7 +4,7 @@
   
 A purely front-end (react) JavaScript application to help you find movies!
 
-[![Version](https://img.shields.io/badge/version-v0.6-blue.svg)](https://img.shields.io/badge/version-v1.0-blue.svg?cacheSeconds=2592000)
+[![Version](https://img.shields.io/badge/version-v1.0-blue.svg)](https://img.shields.io/badge/version-v1.0-blue.svg?cacheSeconds=2592000)
 </div>
 
 <div align="center">
@@ -62,6 +62,17 @@ A purely front-end (react) JavaScript application to help you find movies!
 - [Imdb-API](https://imdb-api.com)
 - [Wikipedia-API](https://www.mediawiki.org/wiki/API:Main_page)
 
+
+**Dependencies-s used** 
+
+- Apollo client
+- Material UI
+- Testing-library
+- DotENV
+- React-github-corner
+- Styled-components
+- Graphql
+- React-router-dom
 
 # <div style="color:#f59800" align="center">---|Usage|---</div>
 
