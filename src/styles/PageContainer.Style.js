@@ -4,7 +4,7 @@ export const PageContainerStyle = styled.div`
   display: grid;
   width: 100vw;
   min-height: 100vh;
-  grid-template-columns: 5% 90% 5%;
+  grid-template-columns: 20% 60% 20%;
   grid-template-rows: 4rem auto 3rem;
   grid-template-areas:
     "HeaderArea HeaderArea HeaderArea"

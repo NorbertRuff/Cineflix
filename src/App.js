@@ -6,9 +6,10 @@ import GithubCorner from "react-github-corner";
 import {BrowserRouter, Link, Route, Switch} from "react-router-dom";
 import RelatedMoviesPage from "./components/pages/RelatedMoviesPage";
 
+const ApolloURI = 'https://tmdb.sandbox.zoosh.ie/dev/graphql';
 
 const client = new ApolloClient({
-    uri: 'https://tmdb.sandbox.zoosh.ie/dev/graphql',
+    uri: ApolloURI,
     cache: new InMemoryCache()
 });
 

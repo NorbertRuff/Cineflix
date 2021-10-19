@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {SearchContainer, TitleContainer} from "../styles/SearchPage.Styled";
+import {SearchContainer} from "../styles/SearchPage.Styled";
 import {Box, Button, Popper, TextField, Typography} from "@mui/material";
 
 const SearchComponent = ({getMoviesByKeyword, setSearchKeyword}) => {
@@ -31,10 +31,10 @@ const SearchComponent = ({getMoviesByKeyword, setSearchKeyword}) => {
 
     return (
         <>
-            <TitleContainer>
+            <Box>
                 <Typography variant="h3">Movie finder</Typography>
                 <Typography variant="h5">Search for a movie</Typography>
-            </TitleContainer>
+            </Box>
             <SearchContainer>
                 <TextField fullWidth id="searchbar"
                            data-testid="searchbar"
