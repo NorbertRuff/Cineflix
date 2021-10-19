@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {Button, CardActions, CardContent, CircularProgress, Typography} from "@mui/material";
-import {dataHandler} from "../../services/dataHandler";
+import {dataHandler} from "../../services/DataHandler";
 
-const WikiMiniCard = ({MovieInfo}) => {
+const WikiMiniCardMovieCard = ({MovieInfo}) => {
     const wikiLinkUrl = `https://en.wikipedia.org/?curid=`;
     const wikiFetchBaseUrl = `https://en.wikipedia.org/w/api.php?`;
 
@@ -92,4 +92,4 @@ const WikiMiniCard = ({MovieInfo}) => {
     );
 };
 
-export default WikiMiniCard;
+export default WikiMiniCardMovieCard;

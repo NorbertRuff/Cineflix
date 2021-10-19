@@ -1,8 +1,8 @@
 import React from 'react';
 import {Avatar, Box, CardHeader, Rating, Typography} from "@mui/material";
-import {convertIsoDate, ratingLabels, roundHalf} from "../../utils/convertUtils";
+import {convertIsoDate, ratingLabels, roundHalf} from "../../utils/HelperUtils";
 
-const CardTitle = ({movie}) => {
+const CardTitleMovieCard = ({movie}) => {
     return (
         <CardHeader
             avatar={
@@ -34,4 +34,4 @@ const CardTitle = ({movie}) => {
     );
 };
 
-export default CardTitle;
+export default CardTitleMovieCard;

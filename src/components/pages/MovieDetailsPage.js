@@ -1,16 +1,16 @@
 import React from 'react';
-import {ErrorMessage, LoadingMessage, MainContentWrapper} from "../styles/PageContainer.Style";
+import {ErrorMessage, LoadingMessage, MainContentWrapper} from "../../styles/PageContainer.Style";
 import {useQuery} from "@apollo/client";
-import {GET_MOVIE_DETAILS_BY_ID} from "../graphQL/Queries";
+import {GET_MOVIE_DETAILS_BY_ID} from "../../graphQL/Queries";
 import {Backdrop, Box, Button, Card, CardContent, CircularProgress} from "@mui/material";
-import CardTitle from "./CardComponents/CardTitle";
-import CardCastList from "./CardComponents/CardCastList";
-import CardCrewList from "./CardComponents/CardCrewList";
-import CardOverview from "./CardComponents/CardOverview";
-import CardThumbnail from "./CardComponents/CardThumbnail";
-import {ContentWrapper, MovieDetailsWrapper, PersonContainer} from "../styles/MovieDetails.Styled";
-import WikiMiniCard from "./CardComponents/WikiMiniCard";
-import ImdbMiniCard from "./CardComponents/ImdbMiniCard";
+import CardTitleMovieCard from "../CardComponents/CardTitle.MovieCard";
+import CastListMovieCard from "../CardComponents/CastList.MovieCard";
+import CardCrewListMovieCard from "../CardComponents/CardCrewList.MovieCard";
+import OverviewMovieCard from "../CardComponents/Overview.MovieCard";
+import ThumbnailMovieCard from "../CardComponents/Thumbnail.MovieCard";
+import {ContentWrapper, MovieDetailsWrapper, PersonContainer} from "../../styles/MovieDetails.Styled";
+import WikiMiniCardMovieCard from "../CardComponents/WikiMiniCard.MovieCard";
+import ImdbMiniCardMovieCard from "../CardComponents/ImdbMiniCard.MovieCard";
 import {Link} from "react-router-dom";
 
 
@@ -48,14 +48,14 @@ const MovieDetailsPage = (props) => {
             <MovieDetailsWrapper>
                 <Card className="mainCard"
                       sx={{maxWidth: 1200, backgroundColor: "rgba(255,255,255,0.8)"}}>
-                    <CardTitle movie={data.movie}/>
+                    <CardTitleMovieCard movie={data.movie}/>
                     <ContentWrapper>
-                        <CardThumbnail movie={data.movie}/>
+                        <ThumbnailMovieCard movie={data.movie}/>
                         <CardContent sx={{minWidth: 200}}>
-                            <CardOverview overview={data.movie.overview}/>
+                            <OverviewMovieCard overview={data.movie.overview}/>
                             <PersonContainer>
-                                <CardCastList cast={data.movie.cast}/>
-                                <CardCrewList crew={data.movie.crew}/>
+                                <CastListMovieCard cast={data.movie.cast}/>
+                                <CardCrewListMovieCard crew={data.movie.crew}/>
                             </PersonContainer>
                         </CardContent>
                     </ContentWrapper>
@@ -63,10 +63,10 @@ const MovieDetailsPage = (props) => {
                 </Card>
                 <Box sx={{maxWidth: 400, display: "flex", flexDirection: "column"}}>
                     <Card className="wikiCard" sx={{marginBottom: 2}}>
-                        <WikiMiniCard MovieInfo={data.movie.name}/>
+                        <WikiMiniCardMovieCard MovieInfo={data.movie.name}/>
                     </Card>
                     <Card className="imdbCard" sx={{marginBottom: 2}}>
-                        <ImdbMiniCard MovieInfo={data.movie.name}/>
+                        <ImdbMiniCardMovieCard MovieInfo={data.movie.name}/>
                     </Card>
                     <Card className="relatedLink" sx={{p: 2}}>
                         <Link to={`/related/${data.movie.id}`}> ><Button>Find Similar movies</Button></Link>

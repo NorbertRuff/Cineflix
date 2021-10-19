@@ -13,9 +13,3 @@ export const ResultContainer = styled.div`
   justify-content: center;
   gap: var(--fs-base);
 `;
-
-
-export const TitleContainer = styled.div`
-  text-align: center;
-`;
-

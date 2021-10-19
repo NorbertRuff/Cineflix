@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {Button, CardActions, CardContent, CircularProgress, Typography} from "@mui/material";
-import {dataHandler} from "../../services/dataHandler";
+import {dataHandler} from "../../services/DataHandler";
 
-const ImdbMiniCard = ({MovieInfo}) => {
+const ImdbMiniCardMovieCard = ({MovieInfo}) => {
     const imdbBaseUrl = `https://www.imdb.com/title/`;
     const [imdbInfo, setImdbInfo] = useState("");
     const [imdbLoading, setImdbLoading] = useState(false);
@@ -68,4 +68,4 @@ const ImdbMiniCard = ({MovieInfo}) => {
     );
 };
 
-export default ImdbMiniCard;
+export default ImdbMiniCardMovieCard;

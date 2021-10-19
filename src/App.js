@@ -1,14 +1,15 @@
 import {Footer, Header, PageContainerStyle} from "./styles/PageContainer.Style";
-import MainPage from "./components/MainPage";
-import MovieDetailsPage from "./components/MovieDetailsPage";
+import MainPage from "./components/pages/MainPage";
+import MovieDetailsPage from "./components/pages/MovieDetailsPage";
 import {ApolloClient, ApolloProvider, InMemoryCache,} from "@apollo/client";
 import GithubCorner from "react-github-corner";
 import {BrowserRouter, Link, Route, Switch} from "react-router-dom";
-import RelatedMoviesPage from "./components/RelatedMoviesPage";
+import RelatedMoviesPage from "./components/pages/RelatedMoviesPage";
 
+const ApolloURI = 'https://tmdb.sandbox.zoosh.ie/dev/graphql';
 
 const client = new ApolloClient({
-    uri: 'https://tmdb.sandbox.zoosh.ie/dev/graphql',
+    uri: ApolloURI,
     cache: new InMemoryCache()
 });
 
