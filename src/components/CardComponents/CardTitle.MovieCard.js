@@ -1,6 +1,6 @@
 import React from 'react';
 import {Avatar, Box, CardHeader, Rating, Typography} from "@mui/material";
-import {convertIsoDate, ratingLabels, roundHalf} from "../../utils/convertUtils";
+import {convertIsoDate, ratingLabels, roundHalf} from "../../utils/HelperUtils";
 
 const CardTitleMovieCard = ({movie}) => {
     return (

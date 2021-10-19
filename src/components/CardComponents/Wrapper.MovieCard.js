@@ -1,7 +1,7 @@
 import React from 'react';
 import {CardWrapper, GenresContainer} from "../../styles/MovieCard.Styled";
 import {Rating} from "@mui/material";
-import {convertIsoDate, roundHalf} from "../../utils/convertUtils";
+import {convertIsoDate, roundHalf} from "../../utils/HelperUtils";
 import NoPic from "../../assets/img/nopic.png";
 
 
