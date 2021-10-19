@@ -4,10 +4,14 @@ import {Box, Button, Popper, TextField, Typography} from "@mui/material";
 
 const SearchComponent = ({getMoviesByKeyword, setSearchKeyword}) => {
     const KEYCODE_FOR_ENTER = 13;
+    /*<------------------MUi Popper hooks-------------------->*/
     const [popperAnchorElement, setPopperAnchorElement] = useState(null);
     const popperIsOpen = Boolean(popperAnchorElement);
+    /*<------------------/MUI Popper hooks------------------->*/
+
 
     const [searchValue, setSearchValue] = useState("");
+
 
     function handleSearchRequest(event) {
         if (searchValue) {
@@ -22,6 +26,10 @@ const SearchComponent = ({getMoviesByKeyword, setSearchKeyword}) => {
         }
     }
 
+    /**
+     * Checks if the keypress was an Enter.
+     * @param event
+     */
     function handleKeyPress(event) {
         let key = event.keyCode || event.which;
         if (key === KEYCODE_FOR_ENTER) {

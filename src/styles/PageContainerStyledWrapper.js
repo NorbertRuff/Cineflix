@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+/**
+ * Main page grid structure skeleton.
+ * @type {StyledComponent}
+ */
 export const PageContainerStyledWrapper = styled.div`
   display: grid;
   width: 100vw;
@@ -11,6 +15,11 @@ export const PageContainerStyledWrapper = styled.div`
     "MainContentArea MainContentArea MainContentArea"
     "FooterArea FooterArea FooterArea";
 `;
+
+/**
+ * Center part of rendered grid. Main content goes here
+ * @type {StyledComponent}
+ */
 
 export const MainContentWrapper = styled.div`
   padding: var(--fs-base);
@@ -25,6 +34,10 @@ export const MainContentWrapper = styled.div`
   justify-content: center;
 
 `;
+/**
+ * Header part of rendered grid. Navbar content goes here
+ * @type {StyledComponent}
+ */
 
 export const HeaderStyledWrapper = styled.div`
   grid-area: HeaderArea;
@@ -51,6 +64,10 @@ export const HeaderStyledWrapper = styled.div`
 
   }
 `;
+/**
+ * Footer part of rendered grid. Impressum content goes here
+ * @type {StyledComponent}
+ */
 
 export const FooterStyledWrapper = styled.div`
   grid-area: FooterArea;
@@ -60,13 +77,20 @@ export const FooterStyledWrapper = styled.div`
   box-shadow: rgba(0, 0, 0, 0.25) 0 14px 28px, rgba(0, 0, 0, 0.22) 0 10px 10px;
 
 `;
-
+/**
+ *Error style
+ * @type {StyledComponent}
+ */
 export const ErrorMessage = styled.h1`
   text-align: center;
   vertical-align: center;
   color: red;
 `;
 
+/**
+ * Main content Loading message style.
+ * @type {StyledComponent}
+ */
 export const LoadingMessage = styled.h1`
   text-align: center;
   position: absolute;

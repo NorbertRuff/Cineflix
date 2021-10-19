@@ -8,11 +8,16 @@ import SearchResults from "../SearchResults";
 import RelatedMovieCard from "../RelatedMovieCard";
 
 const MainPage = () => {
-
+    /*<------------------/Normal search keyword hooks------------------->*/
     const [searchKeyword, setSearchKeyword] = useState("");
     const [movies, setMovies] = useState();
+    /*<------------------/Normal search keyword hooks------------------->*/
+
+    /*<------------------Related Movie hooks------------------->*/
     const [relatedId, setRelatedId] = useState("");
     const [relatedMovie, setRelatedMovie] = useState("");
+    /*<------------------/Related Movie hooks------------------->*/
+
 
     const handleSearchRelatedMovies = (id) => {
         setRelatedId(id);

@@ -10,8 +10,16 @@ import GithubCorner from "react-github-corner";
 import {BrowserRouter, Link, Route, Switch} from "react-router-dom";
 import RelatedMoviesPage from "./components/pages/RelatedMoviesPage";
 
+/**
+ * URL for Apollo provider for APEX TMDB sandbox
+ * @type {string}
+ */
 const ApolloURI = 'https://tmdb.sandbox.zoosh.ie/dev/graphql';
 
+/**
+ * ApolloClient setup
+ * @type {ApolloClient}
+ */
 const client = new ApolloClient({
     uri: ApolloURI,
     cache: new InMemoryCache()
