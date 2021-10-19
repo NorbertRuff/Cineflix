@@ -22,7 +22,7 @@ A purely front-end (react) JavaScript application to help you find movies!
 
 # <div style="color:#f59800" align="center">---|🧐 Project philosophy|---</div>
 
-> Learn new things, have fun with front-end development.
+> To make a project that shows of my skills and passion for React JS, front-end development.
  
 
 ## 🚦Demo
