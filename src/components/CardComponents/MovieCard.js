@@ -5,7 +5,7 @@ import {convertIsoDate, roundHalf} from "../../utils/HelperUtils";
 import NoPic from "../../assets/img/nopic.png";
 
 
-const WrapperMovieCard = ({movie}) => {
+const MovieCard = ({movie}) => {
     return (
         <CardWrapper key={movie.id}>
             <h2>{movie.name}</h2>
@@ -27,4 +27,4 @@ const WrapperMovieCard = ({movie}) => {
     );
 };
 
-export default WrapperMovieCard;
+export default MovieCard;

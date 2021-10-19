@@ -1,5 +1,5 @@
 import React from 'react';
-import {ErrorMessage, LoadingMessage, MainContentWrapper} from "../../styles/PageContainer.Style";
+import {ErrorMessage, LoadingMessage, MainContentWrapper} from "../../styles/PageContainerStyledWrapper";
 import {useQuery} from "@apollo/client";
 import {GET_MOVIE_DETAILS_BY_ID} from "../../graphQL/Queries";
 import {Backdrop, Box, Button, Card, CardContent, CircularProgress} from "@mui/material";

@@ -1,9 +1,9 @@
 import React from 'react';
 import {useQuery} from "@apollo/client";
 import {GET_SIMILAR_MOVIE_DETAILS_BY_ID} from "../../graphQL/Queries";
-import {ErrorMessage, LoadingMessage, MainContentWrapper} from "../../styles/PageContainer.Style";
+import {ErrorMessage, LoadingMessage, MainContentWrapper} from "../../styles/PageContainerStyledWrapper";
 
-import SearchResultContainer from "../SearchResultContainer";
+import SearchResults from "../SearchResults";
 import {Backdrop, CircularProgress} from "@mui/material";
 import RelatedMovieCard from "../RelatedMovieCard";
 
@@ -42,7 +42,7 @@ const RelatedMoviesPage = (props) => {
         <MainContentWrapper>
             <h1>Movies related to:</h1>
             <RelatedMovieCard movie={data.movie}/>
-            {data && <SearchResultContainer movies={data.movie.similar}/>}
+            {data && <SearchResults movies={data.movie.similar}/>}
         </MainContentWrapper>
     );
 };

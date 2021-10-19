@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const PageContainerStyle = styled.div`
+export const PageContainerStyledWrapper = styled.div`
   display: grid;
   width: 100vw;
   min-height: 100vh;
@@ -26,7 +26,7 @@ export const MainContentWrapper = styled.div`
 
 `;
 
-export const Header = styled.div`
+export const HeaderStyledWrapper = styled.div`
   grid-area: HeaderArea;
   display: flex;
   align-items: center;
@@ -52,7 +52,7 @@ export const Header = styled.div`
   }
 `;
 
-export const Footer = styled.div`
+export const FooterStyledWrapper = styled.div`
   grid-area: FooterArea;
   display: flex;
   justify-content: center;

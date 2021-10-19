@@ -1,4 +1,8 @@
-import {Footer, Header, PageContainerStyle} from "./styles/PageContainer.Style";
+import {
+    FooterStyledWrapper,
+    HeaderStyledWrapper,
+    PageContainerStyledWrapper
+} from "./styles/PageContainerStyledWrapper";
 import MainPage from "./components/pages/MainPage";
 import MovieDetailsPage from "./components/pages/MovieDetailsPage";
 import {ApolloClient, ApolloProvider, InMemoryCache,} from "@apollo/client";
@@ -17,12 +21,12 @@ function App() {
     return (
         <ApolloProvider client={client}>
             <BrowserRouter>
-                <PageContainerStyle>
-                    <Header role="header">
+                <PageContainerStyledWrapper>
+                    <HeaderStyledWrapper role="header">
                         <Link data-testid="homeLink" to={"/"}><h2>Apex <span>Lab</span> homework</h2></Link>
                         <GithubCorner href="https://github.com/NorbertRuff/apex-project" size="60" octoColor=""
                                       bannerColor="#2DE1AF"/>
-                    </Header>
+                    </HeaderStyledWrapper>
                     <Switch>
                         <Route path="/" exact>
                             <MainPage/>
@@ -32,10 +36,10 @@ function App() {
                         <Route path="/related/:id"
                                render={(props) => <RelatedMoviesPage {...props}/>}/>
                     </Switch>
-                    <Footer role="footer">
+                    <FooterStyledWrapper role="footer">
                         <h4>Created by Ruff Norbert</h4>
-                    </Footer>
-                </PageContainerStyle>
+                    </FooterStyledWrapper>
+                </PageContainerStyledWrapper>
             </BrowserRouter>
         </ApolloProvider>
     );
