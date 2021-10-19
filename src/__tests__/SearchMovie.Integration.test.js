@@ -96,7 +96,7 @@ describe('Search movie tests', () => {
         //             <BrowserRouter>
         //                 <MainPage>
         //                     <SearchComponent getMoviesByKeyword={"Fight Club"} setSearchKeyword={"Fight Club"}/>
-        //                     <SearchResultContainer/>
+        //                     <SearchResults/>
         //                 </MainPage>
         //
         //             </BrowserRouter>

@@ -1,5 +1,5 @@
 import React from 'react';
-import {ErrorMessage, LoadingMessage, MainContentWrapper} from "../../styles/PageContainer.Style";
+import {ErrorMessage, LoadingMessage, MainContentWrapper} from "../../styles/PageContainerStyledWrapper";
 import {useQuery} from "@apollo/client";
 import {GET_MOVIE_DETAILS_BY_ID} from "../../graphQL/Queries";
 import {Backdrop, Box, Button, Card, CardContent, CircularProgress} from "@mui/material";
@@ -8,7 +8,7 @@ import CastListMovieCard from "../CardComponents/CastList.MovieCard";
 import CardCrewListMovieCard from "../CardComponents/CardCrewList.MovieCard";
 import OverviewMovieCard from "../CardComponents/Overview.MovieCard";
 import ThumbnailMovieCard from "../CardComponents/Thumbnail.MovieCard";
-import {ContentWrapper, MovieDetailsWrapper, PersonContainer} from "../../styles/MovieDetails.Styled";
+import {CardComponentWrapper, MovieDetailsWrapper, PersonContainer} from "../../styles/MovieDetails.Styled";
 import WikiMiniCardMovieCard from "../CardComponents/WikiMiniCard.MovieCard";
 import ImdbMiniCardMovieCard from "../CardComponents/ImdbMiniCard.MovieCard";
 import {Link} from "react-router-dom";
@@ -49,7 +49,7 @@ const MovieDetailsPage = (props) => {
                 <Card className="mainCard"
                       sx={{maxWidth: 1200, backgroundColor: "rgba(255,255,255,0.8)"}}>
                     <CardTitleMovieCard movie={data.movie}/>
-                    <ContentWrapper>
+                    <CardComponentWrapper>
                         <ThumbnailMovieCard movie={data.movie}/>
                         <CardContent sx={{minWidth: 200}}>
                             <OverviewMovieCard overview={data.movie.overview}/>
@@ -58,7 +58,7 @@ const MovieDetailsPage = (props) => {
                                 <CardCrewListMovieCard crew={data.movie.crew}/>
                             </PersonContainer>
                         </CardContent>
-                    </ContentWrapper>
+                    </CardComponentWrapper>
 
                 </Card>
                 <Box sx={{maxWidth: 400, display: "flex", flexDirection: "column"}}>

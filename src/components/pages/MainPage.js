@@ -1,18 +1,23 @@
 import React, {useState} from 'react';
 import {Backdrop, CircularProgress, Typography} from "@mui/material";
-import {ErrorMessage, LoadingMessage, MainContentWrapper} from "../../styles/PageContainer.Style";
+import {ErrorMessage, LoadingMessage, MainContentWrapper} from "../../styles/PageContainerStyledWrapper";
 import {useLazyQuery} from '@apollo/client';
 import {GET_SIMILAR_MOVIE_DETAILS_BY_ID, SEARCH_MOVIES_BY_KEYWORD} from "../../graphQL/Queries";
 import SearchComponent from "../SearchComponent";
-import SearchResultContainer from "../SearchResultContainer";
+import SearchResults from "../SearchResults";
 import RelatedMovieCard from "../RelatedMovieCard";
 
 const MainPage = () => {
-
+    /*<------------------/Normal search keyword hooks------------------->*/
     const [searchKeyword, setSearchKeyword] = useState("");
     const [movies, setMovies] = useState();
+    /*<------------------/Normal search keyword hooks------------------->*/
+
+    /*<------------------Related Movie hooks------------------->*/
     const [relatedId, setRelatedId] = useState("");
     const [relatedMovie, setRelatedMovie] = useState("");
+    /*<------------------/Related Movie hooks------------------->*/
+
 
     const handleSearchRelatedMovies = (id) => {
         setRelatedId(id);
@@ -58,7 +63,8 @@ const MainPage = () => {
 
     function getElementCount() {
         return movies && (movies.length === 0 ? <h1>No result</h1> :
-            <Typography fontSize="18px" marginBottom="1rem"> {movies.length} movies found</Typography>);
+            <Typography className="result-counter" fontSize="18px" marginBottom="1rem"> {movies.length} movies
+                found</Typography>);
     }
 
     return (
@@ -71,8 +77,8 @@ const MainPage = () => {
                 </>
                 : ""}
             {getElementCount()}
-            {data && <SearchResultContainer handleSearchRelatedMovies={handleSearchRelatedMovies}
-                                            setRelatedMovie={setRelatedMovie} movies={movies}/>}
+            {data && <SearchResults handleSearchForRelatedMovies={handleSearchRelatedMovies}
+                                    setRelatedMovie={setRelatedMovie} movies={movies}/>}
         </MainContentWrapper>
     );
 };
