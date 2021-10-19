@@ -2,7 +2,7 @@ import React from 'react';
 import {CardMedia} from "@mui/material";
 import NoPic from "../../assets/img/nopic.png";
 
-const CardThumbnail = ({movie}) => {
+const ThumbnailMovieCard = ({movie}) => {
     return (
         <CardMedia
             component="img"
@@ -13,4 +13,4 @@ const CardThumbnail = ({movie}) => {
     );
 };
 
-export default CardThumbnail;
+export default ThumbnailMovieCard;

@@ -1,7 +1,7 @@
 import React from 'react';
 import {Avatar, List, ListItem, ListItemText, Typography} from "@mui/material";
 
-const CardCastList = ({cast}) => {
+const CastListMovieCard = ({cast}) => {
     return (
         <List sx={{width: 300}}>
             <Typography variant="h5"
@@ -18,4 +18,4 @@ const CardCastList = ({cast}) => {
         </List>
     );
 };
-export default CardCastList;
+export default CastListMovieCard;

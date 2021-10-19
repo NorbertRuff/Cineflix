@@ -1,11 +1,11 @@
 import React from 'react';
-import {CardWrapper, GenresContainer} from "../styles/MovieCard.Styled";
+import {CardWrapper, GenresContainer} from "../../styles/MovieCard.Styled";
 import {Rating} from "@mui/material";
-import {convertIsoDate, roundHalf} from "../utils/convertUtils";
-import NoPic from "../assets/img/nopic.png";
+import {convertIsoDate, roundHalf} from "../../utils/convertUtils";
+import NoPic from "../../assets/img/nopic.png";
 
 
-const MiniMovieCard = ({movie}) => {
+const WrapperMovieCard = ({movie}) => {
     return (
         <CardWrapper key={movie.id}>
             <h2>{movie.name}</h2>
@@ -27,4 +27,4 @@ const MiniMovieCard = ({movie}) => {
     );
 };
 
-export default MiniMovieCard;
+export default WrapperMovieCard;
