@@ -74,7 +74,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Clone the project
 
 ```bash
-  git clone https://github.com/NorbertRuff/apex-project
+  git clone https://github.com/NorbertRuff/apex-project.git
 ```
 
 Go to the project directory
