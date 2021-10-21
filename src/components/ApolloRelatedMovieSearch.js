@@ -1,7 +1,7 @@
 import React from 'react';
 import {useQuery} from "@apollo/client";
 import {GET_SIMILAR_MOVIE_DETAILS_BY_ID} from "../graphQL/Queries";
-import {ErrorMessage, LoadingMessage} from "../styles/PageContainer.Style";
+import {ErrorMessage, LoadingMessage} from "../styles/PageContainerStyledWrapper";
 import {Backdrop, CircularProgress} from "@mui/material";
 import SearchResultContainer from "./SearchResultContainer";
 
@@ -11,7 +11,6 @@ const ApolloRelatedMovieSearch = ({setRelatedMovie, relatedMovie}) => {
     const {loading, data, error} = useQuery(GET_SIMILAR_MOVIE_DETAILS_BY_ID, {
         variables: {ID: relatedMovie.id},
         onCompleted: data => {
-            console.log('data ', data);
         }
     });
 

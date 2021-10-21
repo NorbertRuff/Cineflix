@@ -3,12 +3,12 @@ import {
     HeaderStyledWrapper,
     PageContainerStyledWrapper
 } from "./styles/PageContainerStyledWrapper";
-import MainPage from "./components/pages/MainPage";
-import MovieDetailsPage from "./components/pages/MovieDetailsPage";
 import {ApolloClient, ApolloProvider, InMemoryCache,} from "@apollo/client";
 import GithubCorner from "react-github-corner";
 import {BrowserRouter, Link, Route, Switch} from "react-router-dom";
 import RelatedMoviesPage from "./components/pages/RelatedMoviesPage";
+import MovieDetailsPage from "./components/pages/MovieDetailsPage";
+import MainPage from "./components/pages/MainPage";
 
 /**
  * URL for Apollo provider for APEX TMDB sandbox
