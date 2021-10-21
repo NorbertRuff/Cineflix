@@ -1,17 +1,10 @@
-import {act, fireEvent, render, screen} from "@testing-library/react";
 import React from "react";
-import {BrowserRouter} from "react-router-dom";
 import {MockedProvider} from '@apollo/client/testing';
 import SearchComponent from "../components/SearchComponent";
 import {SEARCH_MOVIES_BY_KEYWORD} from "../graphQL/Queries";
-
-
-const getMoviesByKeywordMock = jest.fn()
-const mockedSetKeywordMock = jest.fn()
-
-beforeEach(() => {
-    jest.mock("../__mocks__/graphQLMock")
-})
+import TestRenderer from 'react-test-renderer';
+import MainPage from "../components/pages/MainPage";
+import App from "../App";
 
 const mocks = [
     {
@@ -32,7 +25,6 @@ const mocks = [
                         "releaseDate": "1999-10-15T00:00:00.000Z",
                         "img": {
                             "medium": "https://image.tmdb.org/t/p/w342/a26cQPRhJPX6GbWfQbvZdrrp9j9.jpg",
-                            "__typename": "Poster"
                         },
                         "genres": [
                             {
@@ -40,7 +32,6 @@ const mocks = [
                                 "__typename": "Genre"
                             }
                         ],
-                        "__typename": "Movie"
                     },
                     {
                         "id": "345922",
@@ -50,7 +41,6 @@ const mocks = [
                         "releaseDate": "2017-02-16T00:00:00.000Z",
                         "img": {
                             "medium": "https://image.tmdb.org/t/p/w342/huRhv4IZDk2ds0DIDkI6uxdmb6J.jpg",
-                            "__typename": "Poster"
                         },
                         "genres": [
                             {
@@ -58,7 +48,6 @@ const mocks = [
                                 "__typename": "Genre"
                             }
                         ],
-                        "__typename": "Movie"
                     }
                 ]
             }
@@ -66,47 +55,48 @@ const mocks = [
     },
 ];
 
-
-const MockedApp = () => {
-    return (
-        <MockedProvider mocks={mocks}>
-            <BrowserRouter>
-                <SearchComponent getMoviesByKeyword={getMoviesByKeywordMock}
-                                 setSearchKeyword={mockedSetKeywordMock}/>
-
-            </BrowserRouter>
-        </MockedProvider>
-    )
-}
-
 describe('Search movie tests', () => {
     it('renders', async () => {
-        render(<MockedApp/>);
-        const inputElement = screen.getByRole('textbox');
-        const searchButtonElement = screen.getByRole("button", {name: /search/i});
-        act(() => {
-            fireEvent.change(inputElement, {target: {value: "Fight Club"}});
-            fireEvent.click(searchButtonElement);
-        });
+        const component = TestRenderer.create(
+            <MockedProvider mocks={mocks} addTypename={false}>
+                <App>
+                    <MainPage>
+                        <SearchComponent>
 
-
-        // it('renders without error', () => {
-        //     const component = TestRenderer.create(
-        //         <MockedProvider mocks={mocks}>
-        //             <BrowserRouter>
-        //                 <MainPage>
-        //                     <SearchComponent getMoviesByKeyword={"Fight Club"} setSearchKeyword={"Fight Club"}/>
-        //                     <SearchResultContainer/>
-        //                 </MainPage>
-        //
-        //             </BrowserRouter>
-        //         </MockedProvider>
-        //     );
-        //
-        //     const tree = component.toJSON();
-        //     expect(tree.children).toContain('Fight Club');
+                        </SearchComponent>
+                    </MainPage>
+                </App>
+            </MockedProvider>,
+        );
+        // const inputElement = screen.getByTestId('searchbar');
+        // const searchButtonElement = screen.getByRole("button", {name: /search/i});
+        // act(() => {
+        //     fireEvent.change(inputElement, {target: {value: "Fight Club"}});
+        //     fireEvent.click(searchButtonElement);
         // });
-
+        const tree = component.toJSON();
+        console.log(tree)
+        // expect(tree.children).toContain('Loading...');
     });
 });
+
+// it('renders without error', () => {
+//     const component = TestRenderer.create(
+//         <MockedProvider mocks={mocks}>
+//             <BrowserRouter>
+//                 <MainPage>
+//                     <SearchComponent getMoviesByKeyword={"Fight Club"} setSearchKeyword={"Fight Club"}/>
+//                     <SearchResultContainer/>
+//                 </MainPage>
+//
+//             </BrowserRouter>
+//         </MockedProvider>
+//     );
+//
+//     const tree = component.toJSON();
+//     expect(tree.children).toContain('Fight Club');
+// });
+
+
+
 

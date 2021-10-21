@@ -6,6 +6,7 @@ import {ErrorMessage, LoadingMessage, MainContentWrapper} from "../../styles/Pag
 import SearchResultContainer from "../SearchResultContainer";
 import {Backdrop, CircularProgress} from "@mui/material";
 import RelatedMovieCard from "../RelatedMovieCard";
+import {ResultContainer} from "../../styles/SearchPage.Styled";
 
 const RelatedMoviesPage = (props) => {
 
@@ -42,7 +43,9 @@ const RelatedMoviesPage = (props) => {
         <MainContentWrapper>
             <h1>Movies related to:</h1>
             <RelatedMovieCard movie={data.movie}/>
-            {data && <SearchResultContainer movies={data.movie.similar}/>}
+            <ResultContainer data-testid="result_div">
+                {data && <SearchResultContainer movies={data.movie.similar}/>}
+            </ResultContainer>
         </MainContentWrapper>
     );
 };
