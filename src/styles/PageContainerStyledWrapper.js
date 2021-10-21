@@ -1,16 +1,25 @@
 import styled from "styled-components";
 
-export const PageContainerStyle = styled.div`
+/**
+ * Main page grid structure skeleton.
+ * @type {StyledComponent}
+ */
+export const PageContainerStyledWrapper = styled.div`
   display: grid;
   width: 100vw;
   min-height: 100vh;
-  grid-template-columns: 5% 90% 5%;
+  grid-template-columns: 20% 60% 20%;
   grid-template-rows: 4rem auto 3rem;
   grid-template-areas:
     "HeaderArea HeaderArea HeaderArea"
     "MainContentArea MainContentArea MainContentArea"
     "FooterArea FooterArea FooterArea";
 `;
+
+/**
+ * Center part of rendered grid. Main content goes here
+ * @type {StyledComponent}
+ */
 
 export const MainContentWrapper = styled.div`
   padding: var(--fs-base);
@@ -25,8 +34,12 @@ export const MainContentWrapper = styled.div`
   justify-content: center;
 
 `;
+/**
+ * Header part of rendered grid. Navbar content goes here
+ * @type {StyledComponent}
+ */
 
-export const Header = styled.div`
+export const HeaderStyledWrapper = styled.div`
   grid-area: HeaderArea;
   display: flex;
   align-items: center;
@@ -51,8 +64,12 @@ export const Header = styled.div`
 
   }
 `;
+/**
+ * Footer part of rendered grid. Impressum content goes here
+ * @type {StyledComponent}
+ */
 
-export const Footer = styled.div`
+export const FooterStyledWrapper = styled.div`
   grid-area: FooterArea;
   display: flex;
   justify-content: center;
@@ -60,13 +77,20 @@ export const Footer = styled.div`
   box-shadow: rgba(0, 0, 0, 0.25) 0 14px 28px, rgba(0, 0, 0, 0.22) 0 10px 10px;
 
 `;
-
+/**
+ *Error style
+ * @type {StyledComponent}
+ */
 export const ErrorMessage = styled.h1`
   text-align: center;
   vertical-align: center;
   color: red;
 `;
 
+/**
+ * Main content Loading message style.
+ * @type {StyledComponent}
+ */
 export const LoadingMessage = styled.h1`
   text-align: center;
   color: var(--clr-primary-100);

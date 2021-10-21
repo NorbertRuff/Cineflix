@@ -1,7 +1,7 @@
 import React from 'react';
 import {Typography} from "@mui/material";
 
-const CardOverview = ({overview}) => {
+const OverviewMovieCard = ({overview}) => {
     return (
         <>
             <Typography variant="h4"
@@ -15,4 +15,4 @@ const CardOverview = ({overview}) => {
     );
 };
 
-export default CardOverview;
+export default OverviewMovieCard;

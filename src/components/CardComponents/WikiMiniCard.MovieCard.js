@@ -1,11 +1,17 @@
 import React, {useEffect, useState} from 'react';
 import {Button, CardActions, CardContent, CircularProgress, Typography} from "@mui/material";
-import {dataHandler} from "../../services/dataHandler";
+import {dataHandler} from "../../services/DataHandler";
 
-const WikiMiniCard = ({MovieInfo}) => {
+const WikiMiniCardMovieCard = ({MovieInfo}) => {
+    /*<------------------wikipedia fetch url setup-------------------->*/
     const wikiLinkUrl = `https://en.wikipedia.org/?curid=`;
     const wikiFetchBaseUrl = `https://en.wikipedia.org/w/api.php?`;
+    /*<------------------/wikipedia fetch url setup-------------------->*/
 
+
+    /**
+     * wikipedia URL setup
+     */
     const wikiFetchConfig = {
         action: 'query',
         format: 'json',
@@ -16,7 +22,11 @@ const WikiMiniCard = ({MovieInfo}) => {
         srnamespace: 0,
         srprop: 'snippet'
     }
-
+    /**
+     * Makes a query url from object keys and values
+     * @param obj
+     * @returns {string}
+     */
     const createQueryString = (obj) => {
         return Object.keys(obj)
             .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(obj[k]))
@@ -24,15 +34,16 @@ const WikiMiniCard = ({MovieInfo}) => {
     }
 
     const wikiFetchFullUrl = wikiFetchBaseUrl + createQueryString(wikiFetchConfig);
-
+    /*<------------------Wikipedia Hooks-------------------->*/
     const [wikiInfo, setWikiInfo] = useState("");
     const [wikiLoading, setWikiLoading] = useState(false);
     const [wikiError, setWikiError] = useState(false);
-
+    /*<------------------/Wikipedia Hooks-------------------->*/
 
     useEffect(() => {
         dataHandler._api_get(wikiFetchFullUrl, setWikiInfo, setWikiError, setWikiLoading)
     }, [wikiFetchFullUrl]);
+
 
     if (wikiLoading) {
         return (
@@ -92,4 +103,4 @@ const WikiMiniCard = ({MovieInfo}) => {
     );
 };
 
-export default WikiMiniCard;
+export default WikiMiniCardMovieCard;

@@ -45,7 +45,7 @@ describe('Github corner test', () => {
         expect(githubCorner).toBeInTheDocument();
     });
 
-    it('Github corner has correct link', () => {
+    test('Github corner has correct link', () => {
         const githubCorner = screen.getByLabelText(/Open github project/i);
         expect(githubCorner).toHaveAttribute('href', 'https://github.com/NorbertRuff/apex-project');
     })
@@ -68,7 +68,7 @@ describe('search Component test', () => {
         expect(searchbar).toBeInTheDocument();
     });
 
-    it('renders a searchbar with label', () => {
+    it('renders a searchbar with correct label', () => {
         const searchbar = screen.getByLabelText(/Movie Title/i);
         expect(searchbar).toBeInTheDocument();
     });

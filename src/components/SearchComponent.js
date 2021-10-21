@@ -1,13 +1,17 @@
 import React, {useState} from 'react';
-import {SearchContainer, TitleContainer} from "../styles/SearchPage.Styled";
+import {SearchContainer} from "../styles/SearchPage.Styled";
 import {Box, Button, Popper, TextField, Typography} from "@mui/material";
 
 const SearchComponent = ({setSearchKeyword}) => {
     const KEYCODE_FOR_ENTER = 13;
+    /*<------------------MUi Popper hooks-------------------->*/
     const [popperAnchorElement, setPopperAnchorElement] = useState(null);
     const popperIsOpen = Boolean(popperAnchorElement);
+    /*<------------------/MUI Popper hooks------------------->*/
+
 
     const [searchValue, setSearchValue] = useState("");
+
 
     function handleSearchRequest(event) {
         if (searchValue) {
@@ -21,6 +25,10 @@ const SearchComponent = ({setSearchKeyword}) => {
         }
     }
 
+    /**
+     * Checks if the keypress was an Enter.
+     * @param event
+     */
     function handleKeyPress(event) {
         let key = event.keyCode || event.which;
         if (key === KEYCODE_FOR_ENTER) {
@@ -30,10 +38,10 @@ const SearchComponent = ({setSearchKeyword}) => {
 
     return (
         <>
-            <TitleContainer>
+            <Box>
                 <Typography variant="h3">Movie finder</Typography>
                 <Typography variant="h5">Search for a movie</Typography>
-            </TitleContainer>
+            </Box>
             <SearchContainer>
                 <TextField fullWidth id="searchbar"
                            data-testid="searchbar"

@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+/**
+ * Card component style for the main page movie results
+ * @type {StyledComponent}
+ */
 export const CardWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -45,7 +49,10 @@ export const CardWrapper = styled.div`
   }
 
 `;
-
+/**
+ * Flex container that contains the movie card that the result movies relates to.
+ * @type {StyledComponent}
+ */
 export const RelatedCardWrapper = styled.div`
   display: grid;
   align-items: center;
@@ -81,6 +88,7 @@ export const RatingDiv = styled.div`
   text-align: center;
   grid-area: Rating;
 `;
+
 export const OverView = styled.div`
   padding: var(--fs-base);
   grid-area: OverView;
@@ -102,7 +110,6 @@ export const RelatedGenresContainer = styled.div`
 export const RelatedDate = styled.div`
   grid-area: ReleaseDate;
 `;
-
 
 export const GenresContainer = styled.div`
   display: flex;

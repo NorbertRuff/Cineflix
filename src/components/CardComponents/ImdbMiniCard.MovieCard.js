@@ -1,20 +1,25 @@
 import React, {useEffect, useState} from 'react';
 import {Button, CardActions, CardContent, CircularProgress, Typography} from "@mui/material";
-import {dataHandler} from "../../services/dataHandler";
+import {dataHandler} from "../../services/DataHandler";
 
-const ImdbMiniCard = ({MovieInfo}) => {
+const ImdbMiniCardMovieCard = ({MovieInfo}) => {
+    /*<------------------Imdb fetch url setup-------------------->*/
     const imdbBaseUrl = `https://www.imdb.com/title/`;
+    const {REACT_APP_IMDB_API_KEY} = process.env;
+    const baseUrl = `https://imdb-api.com/en/API/SearchMovie/${REACT_APP_IMDB_API_KEY}/${MovieInfo.toString()}`;
+
+
+    /*<------------------Imdb hooks-------------------->*/
     const [imdbInfo, setImdbInfo] = useState("");
     const [imdbLoading, setImdbLoading] = useState(false);
     const [imdbError, setImdbError] = useState(false);
-
-    const {REACT_APP_IMDB_API_KEY} = process.env;
-    const baseUrl = `https://imdb-api.com/en/API/SearchMovie/${REACT_APP_IMDB_API_KEY}/${MovieInfo.toString()}`;
+    /*<------------------/Imdb hooks-------------------->*/
 
 
     useEffect(() => {
         dataHandler._api_get(baseUrl, setImdbInfo, setImdbError, setImdbLoading)
     }, [MovieInfo, baseUrl]);
+
 
     if (imdbLoading) {
         return (
@@ -68,4 +73,4 @@ const ImdbMiniCard = ({MovieInfo}) => {
     );
 };
 
-export default ImdbMiniCard;
+export default ImdbMiniCardMovieCard;

@@ -4,16 +4,16 @@
   
 A purely front-end (react) JavaScript application to help you find movies!
 
-[![Version](https://img.shields.io/badge/version-v0.6-blue.svg)](https://img.shields.io/badge/version-v1.0-blue.svg?cacheSeconds=2592000)
+[![Version](https://img.shields.io/badge/version-v1.0-blue.svg)](https://img.shields.io/badge/version-v1.0-blue.svg?cacheSeconds=2592000)
 </div>
 
 <div align="center">
 
-•[PROJECT PHILOSOPHY](https://github.com/NorbertRuff/apex-project/#-project-philosophy) •
-[TECH STACK](https://github.com/NorbertRuff/apex-project/#-tech-stack) •
-[SCREENSHOTS](https://github.com/NorbertRuff/apex-project/#-screenshots) •
-[CONTRIBUTING](https://github.com/NorbertRuff/apex-project/#-contributing) •
-[ABOUT ME](https://github.com/NorbertRuff/apex-project/#-about-me)
+•[PROJECT PHILOSOPHY](https://github.com/NorbertRuff/apex-project/#project-philosophy) •
+[TECH STACK](https://github.com/NorbertRuff/apex-project/#tech-stack) •
+[SCREENSHOTS](https://github.com/NorbertRuff/apex-project/#screenshots) •
+[CONTRIBUTING](https://github.com/NorbertRuff/apex-project/#contributing) •
+[ABOUT ME](https://github.com/NorbertRuff/apex-project/#about-me)
 •
 
 </div>
@@ -22,7 +22,7 @@ A purely front-end (react) JavaScript application to help you find movies!
 
 # <div style="color:#f59800" align="center">---|🧐 Project philosophy|---</div>
 
-> Learn new things, have fun with front-end development.
+> To make a project that shows of my skills and passion for React JS, front-end development.
  
 
 ## 🚦Demo
@@ -63,6 +63,17 @@ A purely front-end (react) JavaScript application to help you find movies!
 - [Wikipedia-API](https://www.mediawiki.org/wiki/API:Main_page)
 
 
+**Dependencies used** 
+
+- Apollo client
+- Material UI
+- Testing-library
+- DotENV
+- React-github-corner
+- Styled-components
+- Graphql
+- React-router-dom
+
 # <div style="color:#f59800" align="center">---|Usage|---</div>
 
 **Client:** React
@@ -74,7 +85,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Clone the project
 
 ```bash
-  git clone https://github.com/NorbertRuff/apex-project
+  git clone https://github.com/NorbertRuff/apex-project.git
 ```
 
 Go to the project directory

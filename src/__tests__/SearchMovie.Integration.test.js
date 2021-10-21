@@ -25,6 +25,7 @@ const mocks = [
                         "releaseDate": "1999-10-15T00:00:00.000Z",
                         "img": {
                             "medium": "https://image.tmdb.org/t/p/w342/a26cQPRhJPX6GbWfQbvZdrrp9j9.jpg",
+                            "__typename": "Poster"
                         },
                         "genres": [
                             {
@@ -32,6 +33,7 @@ const mocks = [
                                 "__typename": "Genre"
                             }
                         ],
+                        "__typename": "Movie"
                     },
                     {
                         "id": "345922",
@@ -41,6 +43,7 @@ const mocks = [
                         "releaseDate": "2017-02-16T00:00:00.000Z",
                         "img": {
                             "medium": "https://image.tmdb.org/t/p/w342/huRhv4IZDk2ds0DIDkI6uxdmb6J.jpg",
+                            "__typename": "Poster"
                         },
                         "genres": [
                             {
@@ -48,6 +51,7 @@ const mocks = [
                                 "__typename": "Genre"
                             }
                         ],
+                        "__typename": "Movie"
                     }
                 ]
             }
@@ -55,48 +59,47 @@ const mocks = [
     },
 ];
 
+
+const MockedApp = () => {
+    return (
+        <MockedProvider mocks={mocks}>
+            <BrowserRouter>
+                <SearchComponent getMoviesByKeyword={getMoviesByKeywordMock}
+                                 setSearchKeyword={mockedSetKeywordMock}/>
+
+            </BrowserRouter>
+        </MockedProvider>
+    )
+}
+
 describe('Search movie tests', () => {
     it('renders', async () => {
-        const component = TestRenderer.create(
-            <MockedProvider mocks={mocks} addTypename={false}>
-                <App>
-                    <MainPage>
-                        <SearchComponent>
+        render(<MockedApp/>);
+        const inputElement = screen.getByRole('textbox');
+        const searchButtonElement = screen.getByRole("button", {name: /search/i});
+        act(() => {
+            fireEvent.change(inputElement, {target: {value: "Fight Club"}});
+            fireEvent.click(searchButtonElement);
+        });
 
-                        </SearchComponent>
-                    </MainPage>
-                </App>
-            </MockedProvider>,
-        );
-        // const inputElement = screen.getByTestId('searchbar');
-        // const searchButtonElement = screen.getByRole("button", {name: /search/i});
-        // act(() => {
-        //     fireEvent.change(inputElement, {target: {value: "Fight Club"}});
-        //     fireEvent.click(searchButtonElement);
+
+        // it('renders without error', () => {
+        //     const component = TestRenderer.create(
+        //         <MockedProvider mocks={mocks}>
+        //             <BrowserRouter>
+        //                 <MainPage>
+        //                     <SearchComponent getMoviesByKeyword={"Fight Club"} setSearchKeyword={"Fight Club"}/>
+        //                     <SearchResults/>
+        //                 </MainPage>
+        //
+        //             </BrowserRouter>
+        //         </MockedProvider>
+        //     );
+        //
+        //     const tree = component.toJSON();
+        //     expect(tree.children).toContain('Fight Club');
         // });
-        const tree = component.toJSON();
-        console.log(tree)
-        // expect(tree.children).toContain('Loading...');
+
     });
 });
-
-// it('renders without error', () => {
-//     const component = TestRenderer.create(
-//         <MockedProvider mocks={mocks}>
-//             <BrowserRouter>
-//                 <MainPage>
-//                     <SearchComponent getMoviesByKeyword={"Fight Club"} setSearchKeyword={"Fight Club"}/>
-//                     <SearchResultContainer/>
-//                 </MainPage>
-//
-//             </BrowserRouter>
-//         </MockedProvider>
-//     );
-//
-//     const tree = component.toJSON();
-//     expect(tree.children).toContain('Fight Club');
-// });
-
-
-
 
