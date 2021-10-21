@@ -16,37 +16,28 @@ const MainPage = () => {
 
     }, [relatedMovie]);
 
-    //
-    // if (relatedMovie) {
-    //     return (
-    //         <MainContentWrapper>
-    //             <SearchComponent setSearchKeyword={setSearchKeyword}/>
-    //             <h1>Movies related to: {relatedMovie.name}</h1>
-    //             <RelatedMovieCard movie={relatedMovie}/>
-    //             <ResultContainer data-testid="result_div">
-    //                 {relatedMovie ? <ApolloRelatedMovieSearch relatedMovie={relatedMovie}
-    //                                                           setRelatedMovie={setRelatedMovie}/> : ""}
-    //             </ResultContainer>
-    //         </MainContentWrapper>);
-    // }
+
+    if (relatedMovie) {
+        return (
+            <MainContentWrapper>
+                <SearchComponent setRelatedMovie={setRelatedMovie} setSearchKeyword={setSearchKeyword}/>
+                <h1>Movies related to: {relatedMovie.name}</h1>
+                <RelatedMovieCard movie={relatedMovie}/>
+                <ResultContainer data-testid="result_div">
+                    {relatedMovie ? <ApolloRelatedMovieSearch relatedMovie={relatedMovie}
+                                                              setRelatedMovie={setRelatedMovie}/> : ""}
+                </ResultContainer>
+            </MainContentWrapper>);
+    }
 
     return (
         <MainContentWrapper>
-            <SearchComponent setSearchKeyword={setSearchKeyword}/>
-            {relatedMovie ?
-                <>
-                    <h1>Movies related to: {relatedMovie.name}</h1>
-                    <RelatedMovieCard movie={relatedMovie}/>
-                    <ResultContainer data-testid="result_div">
-                        <ApolloRelatedMovieSearch relatedMovie={relatedMovie}
-                                                  setRelatedMovie={setRelatedMovie}
-                        />
-                    </ResultContainer>}
-                </> :
+            <SearchComponent setRelatedMovie={setRelatedMovie} setSearchKeyword={setSearchKeyword}/>
+            {searchKeyword ?
                 <ResultContainer data-testid="result_div">
-                    {searchKeyword ? <ApolloMovieSearch searchKeyword={searchKeyword}
-                                                        setRelatedMovie={setRelatedMovie}/> : ""}
-                </ResultContainer>}
+                    <ApolloMovieSearch searchKeyword={searchKeyword}
+                                       setRelatedMovie={setRelatedMovie}/>
+                </ResultContainer> : ""}
         </MainContentWrapper>
     );
 };
