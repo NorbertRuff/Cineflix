@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {SearchContainer, TitleContainer} from "../styles/SearchPage.Styled";
 import {Box, Button, Popper, TextField, Typography} from "@mui/material";
 
-const SearchComponent = ({getMoviesByKeyword, setSearchKeyword}) => {
+const SearchComponent = ({setSearchKeyword}) => {
     const KEYCODE_FOR_ENTER = 13;
     const [popperAnchorElement, setPopperAnchorElement] = useState(null);
     const popperIsOpen = Boolean(popperAnchorElement);
@@ -14,7 +14,6 @@ const SearchComponent = ({getMoviesByKeyword, setSearchKeyword}) => {
             setSearchKeyword(searchValue);
             setSearchValue("")
             document.getElementById("searchbar").value = "";
-            getMoviesByKeyword();
             setPopperAnchorElement(null);
         } else {
             setPopperAnchorElement(popperAnchorElement ? null : document.getElementById("searchButton"));
