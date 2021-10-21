@@ -69,8 +69,6 @@ export const ErrorMessage = styled.h1`
 
 export const LoadingMessage = styled.h1`
   text-align: center;
-  position: absolute;
-  top: 40%;
   color: var(--clr-primary-100);
   font-size: 2rem;
 `;

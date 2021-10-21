@@ -55,7 +55,7 @@ export const RelatedCardWrapper = styled.div`
   max-width: 900px;
   text-align: center;
   margin: 2rem;
-  grid-template-columns: 40% 20% 20% 20%;
+  grid-template-columns: auto auto 20% 20%;
   grid-template-rows: 10% 20% 60% 10%;
   grid-template-areas:
     "Thumbnail ReleaseDate . Rating"
@@ -73,8 +73,7 @@ export const RelatedCardWrapper = styled.div`
 
   img {
     grid-area: Thumbnail;
-    min-width: 200px;
-    width: 100%;
+    width: 250px;
   }
 `;
 
@@ -85,6 +84,7 @@ export const RatingDiv = styled.div`
 export const OverView = styled.div`
   padding: var(--fs-base);
   grid-area: OverView;
+  font-size: clamp(0.7rem, 2vw, 1.2rem);
   background-color: var(--clr-accent);
   color: var(--clr-dark);
   height: 100%;
