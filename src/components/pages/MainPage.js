@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {MainContentWrapper} from "../../styles/PageContainerStyledWrapper";
 import SearchComponent from "../SearchComponent";
 import ApolloKeywordMovieSearch from "../ApolloKeywordMovieSearch";
@@ -7,14 +7,12 @@ import {ResultContainer} from "../../styles/SearchPage.Styled";
 import RelatedMovieCard from "../CardComponents/RelatedMovieCard";
 
 const MainPage = () => {
-
+    /*<------------------Keyword hook-------------------->*/
     const [searchKeyword, setSearchKeyword] = useState();
+
+
+    /*<-------------Related Movie hook---------------->*/
     const [relatedMovie, setRelatedMovie] = useState();
-
-
-    useEffect(() => {
-
-    }, [relatedMovie]);
 
 
     if (relatedMovie) {
