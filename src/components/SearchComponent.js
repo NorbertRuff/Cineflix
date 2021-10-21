@@ -15,10 +15,10 @@ const SearchComponent = ({setRelatedMovie, setSearchKeyword}) => {
 
     function handleSearchRequest(event) {
         if (searchValue) {
+            document.getElementById("searchbar").value = "";
             setSearchKeyword(searchValue);
             setSearchValue("")
-            setRelatedMovie()
-            document.getElementById("searchbar").value = "";
+            setRelatedMovie();
             setPopperAnchorElement(null);
         } else {
             setPopperAnchorElement(popperAnchorElement ? null : document.getElementById("searchButton"));
