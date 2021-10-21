@@ -11,7 +11,7 @@ const ApolloKeywordMovieSearch = ({searchKeyword, setRelatedMovie}) => {
     const {loading, data, error} = useQuery(SEARCH_MOVIES_BY_KEYWORD, {
         variables: {keyWord: searchKeyword},
         onCompleted: data => {
-            console.log(data)
+            // console.log(data)
             setRelatedMovie()
         }
     });
