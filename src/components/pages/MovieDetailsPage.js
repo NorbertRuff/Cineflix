@@ -1,16 +1,16 @@
 import React from 'react';
-import {ErrorMessage, LoadingMessage, MainContentWrapper} from "../styles/PageContainer.Style";
+import {ErrorMessage, LoadingMessage, MainContentWrapper} from "../../styles/PageContainer.Style";
 import {useQuery} from "@apollo/client";
-import {GET_MOVIE_DETAILS_BY_ID} from "../graphQL/Queries";
+import {GET_MOVIE_DETAILS_BY_ID} from "../../graphQL/Queries";
 import {Backdrop, Box, Button, Card, CardContent, CircularProgress} from "@mui/material";
-import CardTitle from "./CardComponents/CardTitle";
-import CardCastList from "./CardComponents/CardCastList";
-import CardCrewList from "./CardComponents/CardCrewList";
-import CardOverview from "./CardComponents/CardOverview";
-import CardThumbnail from "./CardComponents/CardThumbnail";
-import {ContentWrapper, MovieDetailsWrapper, PersonContainer} from "../styles/MovieDetails.Styled";
-import WikiMiniCard from "./CardComponents/WikiMiniCard";
-import ImdbMiniCard from "./CardComponents/ImdbMiniCard";
+import CardTitle from "../CardComponents/CardTitle";
+import CardCastList from "../CardComponents/CardCastList";
+import CardCrewList from "../CardComponents/CardCrewList";
+import CardOverview from "../CardComponents/CardOverview";
+import CardThumbnail from "../CardComponents/CardThumbnail";
+import {ContentWrapper, MovieDetailsWrapper, PersonContainer} from "../../styles/MovieDetails.Styled";
+import WikiMiniCard from "../CardComponents/WikiMiniCard";
+import ImdbMiniCard from "../CardComponents/ImdbMiniCard";
 import {Link} from "react-router-dom";
 
 

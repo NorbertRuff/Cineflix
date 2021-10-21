@@ -1,11 +1,11 @@
 import React from 'react';
 import {useQuery} from "@apollo/client";
-import {GET_SIMILAR_MOVIE_DETAILS_BY_ID} from "../graphQL/Queries";
-import {ErrorMessage, LoadingMessage, MainContentWrapper} from "../styles/PageContainer.Style";
+import {GET_SIMILAR_MOVIE_DETAILS_BY_ID} from "../../graphQL/Queries";
+import {ErrorMessage, LoadingMessage, MainContentWrapper} from "../../styles/PageContainer.Style";
 
-import SearchResultContainer from "./SearchResultContainer";
+import SearchResultContainer from "../SearchResultContainer";
 import {Backdrop, CircularProgress} from "@mui/material";
-import RelatedMovieCard from "./RelatedMovieCard";
+import RelatedMovieCard from "../RelatedMovieCard";
 
 const RelatedMoviesPage = (props) => {
 
