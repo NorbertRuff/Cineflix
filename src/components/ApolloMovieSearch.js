@@ -29,17 +29,22 @@ const ApolloMovieSearch = ({searchKeyword, setRelatedMovie}) => {
 
     if (error) {
         return (
-
             <ErrorMessage>An error occurred while fetching information! {error.message}</ErrorMessage>
-
         );
     }
 
-    if (data) {
+    if (data.searchMovies.length === 0) {
+        return (
+            <ErrorMessage>Sorry no result</ErrorMessage>
+        );
+    }
+
+    if (data.searchMovies) {
         return (
             <SearchResultContainer setRelatedMovie={setRelatedMovie} movies={data.searchMovies}/>
         );
     }
+
 };
 
 export default ApolloMovieSearch;
