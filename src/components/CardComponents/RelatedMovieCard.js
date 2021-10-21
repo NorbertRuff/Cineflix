@@ -1,8 +1,14 @@
 import React from 'react';
-import {OverView, RatingDiv, RelatedCardWrapper, RelatedDate, RelatedGenresContainer} from "../styles/MovieCard.Styled";
+import {
+    OverView,
+    RatingDiv,
+    RelatedCardWrapper,
+    RelatedDate,
+    RelatedGenresContainer
+} from "../../styles/MovieCard.Styled";
 import {Rating} from "@mui/material";
-import {convertIsoDate, roundHalf} from "../utils/HelperUtils";
-import NoPic from "../assets/img/nopic.png";
+import {convertIsoDate, roundHalf} from "../../utils/HelperUtils";
+import NoPic from "../../assets/img/nopic.png";
 import {Link} from "react-router-dom";
 
 

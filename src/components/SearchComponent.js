@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {SearchContainer} from "../styles/SearchPage.Styled";
 import {Box, Button, Popper, TextField, Typography} from "@mui/material";
 
-const SearchComponent = ({getMoviesByKeyword, setSearchKeyword}) => {
+const SearchComponent = ({setRelatedMovie, setSearchKeyword}) => {
     const KEYCODE_FOR_ENTER = 13;
     /*<------------------MUi Popper hooks-------------------->*/
     const [popperAnchorElement, setPopperAnchorElement] = useState(null);
@@ -15,10 +15,10 @@ const SearchComponent = ({getMoviesByKeyword, setSearchKeyword}) => {
 
     function handleSearchRequest(event) {
         if (searchValue) {
+            document.getElementById("searchbar").value = "";
             setSearchKeyword(searchValue);
             setSearchValue("")
-            document.getElementById("searchbar").value = "";
-            getMoviesByKeyword();
+            setRelatedMovie();
             setPopperAnchorElement(null);
         } else {
             setPopperAnchorElement(popperAnchorElement ? null : document.getElementById("searchButton"));
@@ -39,7 +39,7 @@ const SearchComponent = ({getMoviesByKeyword, setSearchKeyword}) => {
 
     return (
         <>
-            <Box>
+            <Box display={"flex"} flexDirection={"column"} justifyContent={"center"} alignItems={"center"}>
                 <Typography variant="h3">Movie finder</Typography>
                 <Typography variant="h5">Search for a movie</Typography>
             </Box>
