@@ -6,11 +6,12 @@ import {Backdrop, CircularProgress} from "@mui/material";
 import SearchResultContainer from "./SearchResultContainer";
 import {ErrorMessage, LoadingMessage} from "../styles/PageContainerStyledWrapper";
 
-const ApolloMovieSearch = ({searchKeyword, setRelatedMovie}) => {
-
+const ApolloKeywordMovieSearch = ({searchKeyword, setRelatedMovie}) => {
+    /*<------------------Apollo search movie by keyword-------------------->*/
     const {loading, data, error} = useQuery(SEARCH_MOVIES_BY_KEYWORD, {
         variables: {keyWord: searchKeyword},
         onCompleted: data => {
+            console.log(data)
             setRelatedMovie()
         }
     });
@@ -19,7 +20,7 @@ const ApolloMovieSearch = ({searchKeyword, setRelatedMovie}) => {
     if (loading) {
         return (
             <>
-                <LoadingMessage>Data is loading...</LoadingMessage>
+                <LoadingMessage>Results are loading...</LoadingMessage>
                 <Backdrop sx={{color: 'var(--clr-primary-200)', zIndex: (theme) => theme.zIndex.drawer + 1}}
                           open={loading}>
                     <CircularProgress color="inherit"/>
@@ -47,4 +48,4 @@ const ApolloMovieSearch = ({searchKeyword, setRelatedMovie}) => {
 
 };
 
-export default ApolloMovieSearch;
+export default ApolloKeywordMovieSearch;

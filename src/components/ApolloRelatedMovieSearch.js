@@ -7,7 +7,7 @@ import SearchResultContainer from "./SearchResultContainer";
 
 const ApolloRelatedMovieSearch = ({setRelatedMovie, relatedMovie}) => {
 
-
+    /*<------------------Apollo search related movies by movieID-------------------->*/
     const {loading, data, error} = useQuery(GET_SIMILAR_MOVIE_DETAILS_BY_ID, {
         variables: {ID: relatedMovie.id},
         onCompleted: data => {
@@ -18,7 +18,7 @@ const ApolloRelatedMovieSearch = ({setRelatedMovie, relatedMovie}) => {
     if (loading) {
         return (
             <>
-                <LoadingMessage>Data is loading...</LoadingMessage>
+                <LoadingMessage>Results are loading...</LoadingMessage>
                 <Backdrop sx={{color: 'var(--clr-primary-200)', zIndex: (theme) => theme.zIndex.drawer + 1}}
                           open={loading}>
                     <CircularProgress color="inherit"/>

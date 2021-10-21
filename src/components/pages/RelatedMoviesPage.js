@@ -5,7 +5,7 @@ import {ErrorMessage, LoadingMessage, MainContentWrapper} from "../../styles/Pag
 
 import SearchResultContainer from "../SearchResultContainer";
 import {Backdrop, CircularProgress} from "@mui/material";
-import RelatedMovieCard from "../RelatedMovieCard";
+import RelatedMovieCard from "../CardComponents/RelatedMovieCard";
 import {ResultContainer} from "../../styles/SearchPage.Styled";
 
 const RelatedMoviesPage = (props) => {

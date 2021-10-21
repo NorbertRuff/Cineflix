@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import {MainContentWrapper} from "../../styles/PageContainerStyledWrapper";
 import SearchComponent from "../SearchComponent";
-import ApolloMovieSearch from "../ApolloMovieSearch";
+import ApolloKeywordMovieSearch from "../ApolloKeywordMovieSearch";
 import ApolloRelatedMovieSearch from "../ApolloRelatedMovieSearch";
 import {ResultContainer} from "../../styles/SearchPage.Styled";
-import RelatedMovieCard from "../RelatedMovieCard";
+import RelatedMovieCard from "../CardComponents/RelatedMovieCard";
 
 const MainPage = () => {
 
@@ -35,8 +35,8 @@ const MainPage = () => {
             <SearchComponent setRelatedMovie={setRelatedMovie} setSearchKeyword={setSearchKeyword}/>
             {searchKeyword ?
                 <ResultContainer data-testid="result_div">
-                    <ApolloMovieSearch searchKeyword={searchKeyword}
-                                       setRelatedMovie={setRelatedMovie}/>
+                    <ApolloKeywordMovieSearch searchKeyword={searchKeyword}
+                                              setRelatedMovie={setRelatedMovie}/>
                 </ResultContainer> : ""}
         </MainContentWrapper>
     );
