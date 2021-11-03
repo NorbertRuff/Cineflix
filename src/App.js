@@ -31,8 +31,8 @@ function App() {
             <BrowserRouter>
                 <PageContainerStyledWrapper>
                     <HeaderStyledWrapper role="header">
-                        <Link data-testid="homeLink" to={"/"}><h2>Movie <span>Finder</span></h2></Link>
-                        <GithubCorner href="https://github.com/NorbertRuff/movie-finder" size="60" octoColor=""
+                        <Link data-testid="homeLink" to={"/"}><h2>Cine<span>Flix</span></h2></Link>
+                        <GithubCorner href="https://github.com/NorbertRuff/Cineflix" size="60" octoColor=""
                                       bannerColor="#2DE1AF"/>
                     </HeaderStyledWrapper>
                     <Switch>

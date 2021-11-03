@@ -14,8 +14,8 @@ describe('Navbar test', () => {
     });
 
     it('renders title in navbar', () => {
-        const title = screen.getByText("Movie");
-        const span = screen.getByText("Finder");
+        const title = screen.getByText("Cine");
+        const span = screen.getByText("Flix");
         expect(title).toBeInTheDocument();
         expect(span).toBeInTheDocument();
     });
@@ -47,7 +47,7 @@ describe('Github corner test', () => {
 
     test('Github corner has correct link', () => {
         const githubCorner = screen.getByLabelText(/Open github project/i);
-        expect(githubCorner).toHaveAttribute('href', 'https://github.com/NorbertRuff/movie-finder');
+        expect(githubCorner).toHaveAttribute('href', 'https://github.com/NorbertRuff/Cineflix');
     })
 });
 
