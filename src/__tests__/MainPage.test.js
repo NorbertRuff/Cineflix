@@ -14,8 +14,8 @@ describe('Navbar test', () => {
     });
 
     it('renders title in navbar', () => {
-        const title = screen.getByText(/Apex Homework/i);
-        const span = screen.getByText(/Lab/i);
+        const title = screen.getByText("Movie");
+        const span = screen.getByText("Finder");
         expect(title).toBeInTheDocument();
         expect(span).toBeInTheDocument();
     });
@@ -47,7 +47,7 @@ describe('Github corner test', () => {
 
     test('Github corner has correct link', () => {
         const githubCorner = screen.getByLabelText(/Open github project/i);
-        expect(githubCorner).toHaveAttribute('href', 'https://github.com/NorbertRuff/apex-project');
+        expect(githubCorner).toHaveAttribute('href', 'https://github.com/NorbertRuff/movie-finder');
     })
 });
 

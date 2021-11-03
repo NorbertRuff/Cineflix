@@ -11,7 +11,7 @@ import MovieDetailsPage from "./components/pages/MovieDetailsPage";
 import MainPage from "./components/pages/MainPage";
 
 /**
- * URL for Apollo provider for APEX TMDB sandbox
+ * URL for Apollo provider for Movie Finder TMDB sandbox
  * @type {string}
  */
 const ApolloURI = 'https://tmdb.sandbox.zoosh.ie/dev/graphql';
@@ -31,8 +31,8 @@ function App() {
             <BrowserRouter>
                 <PageContainerStyledWrapper>
                     <HeaderStyledWrapper role="header">
-                        <Link data-testid="homeLink" to={"/"}><h2>Apex <span>Lab</span> homework</h2></Link>
-                        <GithubCorner href="https://github.com/NorbertRuff/apex-project" size="60" octoColor=""
+                        <Link data-testid="homeLink" to={"/"}><h2>Movie <span>Finder</span></h2></Link>
+                        <GithubCorner href="https://github.com/NorbertRuff/movie-finder" size="60" octoColor=""
                                       bannerColor="#2DE1AF"/>
                     </HeaderStyledWrapper>
                     <Switch>
