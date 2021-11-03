@@ -1,4 +1,4 @@
-![logo](https://github.com/NorbertRuff/Cineflix/blob/development/blob/Screenshot5?raw=true)
+![logo](https://github.com/NorbertRuff/Cineflix/blob/development/blob/Screenshot5.png?raw=true)
 
 ## <div style="color:#f59800" align="center">---|Welcome to my Movie Finder Project 👋|---</div>
 
@@ -46,13 +46,13 @@ A purely front-end (react) JavaScript application to help you find movies!
 <div align="center">
 
 
-![screenshot](https://github.com/NorbertRuff/Cineflix/blob/development/blob/Screenshot2?raw=true)
+![screenshot](https://github.com/NorbertRuff/Cineflix/blob/development/blob/Screenshot2.png?raw=true)
 
-![screenshot](https://github.com/NorbertRuff/Cineflix/blob/development/blob/Screenshot1?raw=true)
+![screenshot](https://github.com/NorbertRuff/Cineflix/blob/development/blob/Screenshot1.png?raw=true)
 
-![screenshot](https://github.com/NorbertRuff/Cineflix/blob/development/blob/Screenshot3?raw=true)
+![screenshot](https://github.com/NorbertRuff/Cineflix/blob/development/blob/Screenshot3.png?raw=true)
 
-![screenshot](https://github.com/NorbertRuff/Cineflix/blob/development/blob/Screenshot4?raw=true)
+![screenshot](https://github.com/NorbertRuff/Cineflix/blob/development/blob/Screenshot4.png?raw=true)
 
 
 </div>
