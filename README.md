@@ -4,7 +4,7 @@
 
 <div align="center">
 
-A purely front-end (react) JavaScript application to help you find movies!
+A purely front-end (react) JavaScript application to help you find movies, through a GraphQL database!
 
 [![Version](https://img.shields.io/badge/version-v1.0-blue.svg)](https://img.shields.io/badge/version-v1.0-blue.svg?cacheSeconds=2592000)
 </div>
@@ -25,7 +25,7 @@ A purely front-end (react) JavaScript application to help you find movies!
 # <div style="color:#f59800" align="center">---|🧐 Project philosophy|---</div>
 
 > To make a project that shows of my skills and passion for React JS, front-end development.
- 
+> To learn GraphQL 
 
 ## 🚦Demo
 <div align="center">
@@ -36,9 +36,11 @@ A purely front-end (react) JavaScript application to help you find movies!
 
 ## 💺Features
 
-- Search movies from database
+- Search movies from GraphQL database
 - Search similar movies
 - Movie details page
+- Wikipedia api for wiki-snippets
+- Imdb api for linking reference site
 - Responsive
 
 
