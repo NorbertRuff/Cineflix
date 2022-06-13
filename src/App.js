@@ -5,10 +5,10 @@ import {
 } from "./styles/PageContainerStyledWrapper";
 import {ApolloClient, ApolloProvider, InMemoryCache,} from "@apollo/client";
 import GithubCorner from "react-github-corner";
-import {BrowserRouter, Link, Route, Switch} from "react-router-dom";
 import RelatedMoviesPage from "./components/pages/RelatedMoviesPage";
 import MovieDetailsPage from "./components/pages/MovieDetailsPage";
 import MainPage from "./components/pages/MainPage";
+import {BrowserRouter, Link, Route, Routes} from "react-router-dom";
 
 /**
  * URL for Apollo provider for Movie Finder TMDB sandbox
@@ -35,15 +35,13 @@ function App() {
                         <GithubCorner href="https://github.com/NorbertRuff/Cineflix" size="60" octoColor=""
                                       bannerColor="#2DE1AF"/>
                     </HeaderStyledWrapper>
-                    <Switch>
-                        <Route path="/" exact>
-                            <MainPage/>
-                        </Route>
+                    <Routes>
+                        <Route path="/" exact element={<MainPage/>}/>
                         <Route path="/movie/:id"
-                               render={(props) => <MovieDetailsPage {...props}/>}/>
+                               element={<MovieDetailsPage/>}/>
                         <Route path="/related/:id"
-                               render={(props) => <RelatedMoviesPage {...props}/>}/>
-                    </Switch>
+                               element={<RelatedMoviesPage/>}/>
+                    </Routes>
                     <FooterStyledWrapper role="footer">
                         <h4>Created by Ruff Norbert</h4>
                     </FooterStyledWrapper>
