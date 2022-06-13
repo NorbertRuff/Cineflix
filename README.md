@@ -1,19 +1,21 @@
-![logo](https://github.com/NorbertRuff/apex-project/blob/development/blob/Screenshot%20from%202021-10-18%2023-02-39.png?raw=true)
-## <div style="color:#f59800" align="center">---|Welcome to my Apex Lab homework Project 👋|---</div>
-<div align="center">
-  
-A purely front-end (react) JavaScript application to help you find movies!
+![logo](https://github.com/NorbertRuff/Cineflix/blob/development/blob/Screenshot5.png?raw=true)
 
-[![Version](https://img.shields.io/badge/version-v0.6-blue.svg)](https://img.shields.io/badge/version-v1.0-blue.svg?cacheSeconds=2592000)
+## <div style="color:#f59800" align="center">---|Welcome to my Movie Finder Project 👋|---</div>
+
+<div align="center">
+
+A purely front-end (react) JavaScript application to help you find movies, through a GraphQL database!
+
+[![Version](https://img.shields.io/badge/version-v1.0-blue.svg)](https://img.shields.io/badge/version-v1.0-blue.svg?cacheSeconds=2592000)
 </div>
 
 <div align="center">
 
-•[PROJECT PHILOSOPHY](https://github.com/NorbertRuff/apex-project/#-project-philosophy) •
-[TECH STACK](https://github.com/NorbertRuff/apex-project/#-tech-stack) •
-[SCREENSHOTS](https://github.com/NorbertRuff/apex-project/#-screenshots) •
-[CONTRIBUTING](https://github.com/NorbertRuff/apex-project/#-contributing) •
-[ABOUT ME](https://github.com/NorbertRuff/apex-project/#-about-me)
+•[PROJECT PHILOSOPHY](https://github.com/NorbertRuff/Cineflix/#project-philosophy) •
+[TECH STACK](https://github.com/NorbertRuff/Cineflix/#tech-stack) •
+[SCREENSHOTS](https://github.com/NorbertRuff/Cineflix/#screenshots) •
+[CONTRIBUTING](https://github.com/NorbertRuff/Cineflix/#contributing) •
+[ABOUT ME](https://github.com/NorbertRuff/Cineflix/#about-me)
 •
 
 </div>
@@ -23,34 +25,36 @@ A purely front-end (react) JavaScript application to help you find movies!
 # <div style="color:#f59800" align="center">---|🧐 Project philosophy|---</div>
 
 > To make a project that shows of my skills and passion for React JS, front-end development.
- 
+> To learn GraphQL 
 
 ## 🚦Demo
 <div align="center">
-  
-![screenshot](https://github.com/NorbertRuff/apex-project/blob/development/blob/samplegif.gif?raw=true)
+
+![screenshot](https://github.com/NorbertRuff/Cineflix/blob/development/blob/samplegif.gif?raw=true)
   
 </div>
 
 ## 💺Features
 
-- Search movies from database
+- Search movies from GraphQL database
 - Search similar movies
 - Movie details page
+- Wikipedia api for wiki-snippets
+- Imdb api for linking reference site
 - Responsive
 
 
 ## Screenshots
 <div align="center">
-  
 
-![screenshot](https://github.com/NorbertRuff/apex-project/blob/development/blob/Screenshot%20from%202021-10-18%2022-47-53.png?raw=true)
-  
-![screenshot](https://github.com/NorbertRuff/apex-project/blob/development/blob/Screenshot%20from%202021-10-18%2022-48-20.png?raw=true)
 
-![screenshot](https://github.com/NorbertRuff/apex-project/blob/development/blob/Screenshot%20from%202021-10-18%2022-49-54.png?raw=true)
+![screenshot](https://github.com/NorbertRuff/Cineflix/blob/development/blob/Screenshot2.png?raw=true)
 
-![screenshot](https://github.com/NorbertRuff/apex-project/blob/development/blob/Screenshot%20from%202021-10-18%2022-50-36.png?raw=true)
+![screenshot](https://github.com/NorbertRuff/Cineflix/blob/development/blob/Screenshot1.png?raw=true)
+
+![screenshot](https://github.com/NorbertRuff/Cineflix/blob/development/blob/Screenshot3.png?raw=true)
+
+![screenshot](https://github.com/NorbertRuff/Cineflix/blob/development/blob/Screenshot4.png?raw=true)
 
 
 </div>
@@ -63,6 +67,17 @@ A purely front-end (react) JavaScript application to help you find movies!
 - [Wikipedia-API](https://www.mediawiki.org/wiki/API:Main_page)
 
 
+**Dependencies used** 
+
+- Apollo client
+- Material UI
+- Testing-library
+- DotENV
+- React-github-corner
+- Styled-components
+- Graphql
+- React-router-dom
+
 # <div style="color:#f59800" align="center">---|Usage|---</div>
 
 **Client:** React
@@ -74,13 +89,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Clone the project
 
 ```bash
-  git clone https://github.com/NorbertRuff/apex-project
+  git clone https://github.com/NorbertRuff/Cineflix.git
 ```
 
 Go to the project directory
 
 ```bash
-  cd apex-project
+  cd Cineflix
 ```
 
 Install dependencies
@@ -124,10 +139,10 @@ REACT_APP_IMDB_API_KEY=YOUR_KEY
 
 Contributions, issues and feature requests are welcome!<br/>
 
-Interested in contributing to the Apex Lab Homework project? Thanks so much for your interest! I always looking for improvements to the project and contributions from open-source developers are greatly appreciated.
+Interested in contributing to the Cineflix project? Thanks so much for your interest! I always looking for improvements
+to the project and contributions from open-source developers are greatly appreciated.
 
-Feel free to check [issues page](https://github.com/NorbertRuff/apex-project/issues).
-
+Feel free to check [issues page](https://github.com/NorbertRuff/Cineflix/issues).
 
 Give a ⭐️ if this project helped you!
 

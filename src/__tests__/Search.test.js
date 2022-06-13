@@ -2,15 +2,15 @@ import React from 'react';
 import {fireEvent, render, screen} from '@testing-library/react';
 import SearchComponent from "../components/SearchComponent";
 
-const getMoviesByKeyword = jest.fn()
-const mockedSetKeyword = jest.fn()
+const setRelatedMovie = jest.fn()
+const setSearchKeyword = jest.fn()
 
 
 describe('input tests', () => {
     it('renders', () => {
         render(<SearchComponent
-            getMoviesByKeyword={getMoviesByKeyword}
-            setSearchKeyword={mockedSetKeyword}
+            setRelatedMovie={setRelatedMovie}
+            setSearchKeyword={setSearchKeyword}
         />);
         const inputElement = screen.getByTestId('searchbar');
         expect(inputElement).toBeInTheDocument();
@@ -18,8 +18,8 @@ describe('input tests', () => {
 
     it('should be able to type into', () => {
         render(<SearchComponent
-            getMoviesByKeyword={getMoviesByKeyword}
-            setSearchKeyword={mockedSetKeyword}
+            setRelatedMovie={setRelatedMovie}
+            setSearchKeyword={setSearchKeyword}
         />);
         const inputElement = screen.getByRole('textbox');
         fireEvent.change(inputElement, {target: {value: "Fight Club"}})
@@ -28,8 +28,8 @@ describe('input tests', () => {
 
     it('should have empty input when button clicked', () => {
         render(<SearchComponent
-            getMoviesByKeyword={getMoviesByKeyword}
-            setSearchKeyword={mockedSetKeyword}
+            setRelatedMovie={setRelatedMovie}
+            setSearchKeyword={setSearchKeyword}
         />);
         const inputElement = screen.getByRole('textbox');
         const searchButtonElement = screen.getByRole("button", {name: /search/i});

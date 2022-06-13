@@ -1,84 +1,41 @@
 import React, {useState} from 'react';
-import {Backdrop, CircularProgress, Typography} from "@mui/material";
-import {ErrorMessage, LoadingMessage, MainContentWrapper} from "../../styles/PageContainerStyledWrapper";
-import {useLazyQuery} from '@apollo/client';
-import {GET_SIMILAR_MOVIE_DETAILS_BY_ID, SEARCH_MOVIES_BY_KEYWORD} from "../../graphQL/Queries";
+import {MainContentWrapper} from "../../styles/PageContainerStyledWrapper";
 import SearchComponent from "../SearchComponent";
-import SearchResults from "../SearchResults";
-import RelatedMovieCard from "../RelatedMovieCard";
+import ApolloKeywordMovieSearch from "../ApolloKeywordMovieSearch";
+import ApolloRelatedMovieSearch from "../ApolloRelatedMovieSearch";
+import {ResultContainer} from "../../styles/SearchPage.Styled";
+import RelatedMovieCard from "../CardComponents/RelatedMovieCard";
 
 const MainPage = () => {
-    /*<------------------/Normal search keyword hooks------------------->*/
-    const [searchKeyword, setSearchKeyword] = useState("");
-    const [movies, setMovies] = useState();
-    /*<------------------/Normal search keyword hooks------------------->*/
-
-    /*<------------------Related Movie hooks------------------->*/
-    const [relatedId, setRelatedId] = useState("");
-    const [relatedMovie, setRelatedMovie] = useState("");
-    /*<------------------/Related Movie hooks------------------->*/
+    /*<------------------Keyword hook-------------------->*/
+    const [searchKeyword, setSearchKeyword] = useState();
 
 
-    const handleSearchRelatedMovies = (id) => {
-        setRelatedId(id);
-        getRelatedMovies();
-    };
-
-    const [getMoviesByKeyword, {loading, data, error}] = useLazyQuery(SEARCH_MOVIES_BY_KEYWORD, {
-        variables: {keyWord: searchKeyword},
-        onCompleted: data => {
-            setMovies(data.searchMovies)
-            // console.log('data ', data);
-        }
-    });
+    /*<-------------Related Movie hook---------------->*/
+    const [relatedMovie, setRelatedMovie] = useState();
 
 
-    const [getRelatedMovies, {loading: relatedMoviesLoading, error: relatedMoviesError}] =
-        useLazyQuery(GET_SIMILAR_MOVIE_DETAILS_BY_ID, {
-            variables: {ID: relatedId},
-            onCompleted: data => {
-                setMovies(data.movie.similar)
-                // console.log('data ', data);
-            }
-        });
-
-    if (loading || relatedMoviesLoading) {
+    if (relatedMovie) {
         return (
             <MainContentWrapper>
-                <LoadingMessage>Data is loading...</LoadingMessage>
-                <Backdrop sx={{color: 'var(--clr-primary-200)', zIndex: (theme) => theme.zIndex.drawer + 1}}
-                          open={loading || relatedMoviesLoading}>
-                    <CircularProgress color="inherit"/>
-                </Backdrop>
+                <SearchComponent setRelatedMovie={setRelatedMovie} setSearchKeyword={setSearchKeyword}/>
+                <h1>Movies related to: {relatedMovie.name}</h1>
+                <RelatedMovieCard movie={relatedMovie}/>
+                <ResultContainer data-testid="result_div">
+                    {relatedMovie ? <ApolloRelatedMovieSearch relatedMovie={relatedMovie}
+                                                              setRelatedMovie={setRelatedMovie}/> : ""}
+                </ResultContainer>
             </MainContentWrapper>);
-    }
-
-    if (error || relatedMoviesError) {
-        return (
-            <MainContentWrapper>
-                <ErrorMessage>An error occurred while fetching information!</ErrorMessage>
-            </MainContentWrapper>
-        );
-    }
-
-    function getElementCount() {
-        return movies && (movies.length === 0 ? <h1>No result</h1> :
-            <Typography className="result-counter" fontSize="18px" marginBottom="1rem"> {movies.length} movies
-                found</Typography>);
     }
 
     return (
         <MainContentWrapper>
-            <SearchComponent getMoviesByKeyword={getMoviesByKeyword} setSearchKeyword={setSearchKeyword}/>
-            {relatedId ?
-                <>
-                    <h1>Movies related to: {relatedMovie.name}</h1>
-                    <RelatedMovieCard movie={relatedMovie}/>
-                </>
-                : ""}
-            {getElementCount()}
-            {data && <SearchResults handleSearchForRelatedMovies={handleSearchRelatedMovies}
-                                    setRelatedMovie={setRelatedMovie} movies={movies}/>}
+            <SearchComponent setRelatedMovie={setRelatedMovie} setSearchKeyword={setSearchKeyword}/>
+            {searchKeyword ?
+                <ResultContainer data-testid="result_div">
+                    <ApolloKeywordMovieSearch searchKeyword={searchKeyword}
+                                              setRelatedMovie={setRelatedMovie}/>
+                </ResultContainer> : ""}
         </MainContentWrapper>
     );
 };

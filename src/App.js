@@ -3,15 +3,15 @@ import {
     HeaderStyledWrapper,
     PageContainerStyledWrapper
 } from "./styles/PageContainerStyledWrapper";
-import MainPage from "./components/pages/MainPage";
-import MovieDetailsPage from "./components/pages/MovieDetailsPage";
 import {ApolloClient, ApolloProvider, InMemoryCache,} from "@apollo/client";
 import GithubCorner from "react-github-corner";
-import {BrowserRouter, Link, Route, Switch} from "react-router-dom";
 import RelatedMoviesPage from "./components/pages/RelatedMoviesPage";
+import MovieDetailsPage from "./components/pages/MovieDetailsPage";
+import MainPage from "./components/pages/MainPage";
+import {BrowserRouter, Link, Route, Routes} from "react-router-dom";
 
 /**
- * URL for Apollo provider for APEX TMDB sandbox
+ * URL for Apollo provider for Movie Finder TMDB sandbox
  * @type {string}
  */
 const ApolloURI = 'https://tmdb.sandbox.zoosh.ie/dev/graphql';
@@ -31,19 +31,17 @@ function App() {
             <BrowserRouter>
                 <PageContainerStyledWrapper>
                     <HeaderStyledWrapper role="header">
-                        <Link data-testid="homeLink" to={"/"}><h2>Apex <span>Lab</span> homework</h2></Link>
-                        <GithubCorner href="https://github.com/NorbertRuff/apex-project" size="60" octoColor=""
+                        <Link data-testid="homeLink" to={"/"}><h2>Cine<span>Flix</span></h2></Link>
+                        <GithubCorner href="https://github.com/NorbertRuff/Cineflix" size="60" octoColor=""
                                       bannerColor="#2DE1AF"/>
                     </HeaderStyledWrapper>
-                    <Switch>
-                        <Route path="/" exact>
-                            <MainPage/>
-                        </Route>
+                    <Routes>
+                        <Route path="/" exact element={<MainPage/>}/>
                         <Route path="/movie/:id"
-                               render={(props) => <MovieDetailsPage {...props}/>}/>
+                               element={<MovieDetailsPage/>}/>
                         <Route path="/related/:id"
-                               render={(props) => <RelatedMoviesPage {...props}/>}/>
-                    </Switch>
+                               element={<RelatedMoviesPage/>}/>
+                    </Routes>
                     <FooterStyledWrapper role="footer">
                         <h4>Created by Ruff Norbert</h4>
                     </FooterStyledWrapper>
